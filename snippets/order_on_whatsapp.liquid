@@ -1,0 +1,51 @@
+<a href="https://api.whatsapp.com/send?phone=+919999999999&text=Hi,%0AI%20want%20to%20order%20this%20product:%20{{ product.title }}%0A{{ shop.url }}/products/{{ product.handle }}%0APrice:%20{{ product.price | money_without_trailing_zeros }}"
+   class="btn--whatsapp-order"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Order {{ product.title }} on WhatsApp">
+
+  <img src="https://cdn.shopify.com/s/files/1/0073/2522/0979/files/whatsapp-icon.png?v=1615793565"
+       width="24"
+       height="24"
+       alt="WhatsApp Icon"
+       class="whatsapp-icon" />
+  Order on WhatsApp
+
+</a>
+
+<style>
+.btn--whatsapp-order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #25d366;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn--whatsapp-order:hover {
+  background-color: #128c7e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-icon {
+  vertical-align: middle;
+  display: inline-block;
+}
+</style>

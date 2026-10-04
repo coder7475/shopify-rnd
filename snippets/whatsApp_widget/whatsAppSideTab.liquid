@@ -1,0 +1,316 @@
+<style>
+  .whatsapp-sidetab {
+    position: fixed;
+    top: {{ section.settings.vertical_position | default: 50 }}%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1;
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    {% if section.settings.use_gradient_bg %}
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    {% else %}
+      background-color: {{ section.settings.bg_color | default: '#25d366' }};
+    {% endif %}
+
+    {% if section.settings.dock_side == 'left' %}
+      left: 0;
+      right: auto;
+      border-radius: 0 {{ section.settings.border_radius | default: 8 }}px {{ section.settings.border_radius | default: 8 }}px 0;
+    {% else %}
+      right: 0;
+      left: auto;
+      border-radius: {{ section.settings.border_radius | default: 8 }}px 0 0 {{ section.settings.border_radius | default: 8 }}px;
+    {% endif %}
+  }
+
+  .whatsapp-sidetab:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    {% if section.settings.dock_side == 'left' %}
+      transform: translateY(-50%) translateX(5px);
+    {% else %}
+      transform: translateY(-50%) translateX(-5px);
+    {% endif %}
+  }
+
+  .whatsapp-sidetab-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .whatsapp-sidetab-text {
+    font-size: {{ section.settings.text_size | default: 13 }}px;
+    font-weight: 600;
+    color: currentColor;
+    white-space: nowrap;
+    user-select: none;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    writing-mode: vertical-rl;
+  }
+
+  @media (max-width: 768px) {
+    .whatsapp-sidetab {
+      padding: 10px 8px;
+    }
+    {% if section.settings.hide_text_mobile %}
+      .whatsapp-sidetab .whatsapp-sidetab-text {
+        display: none;
+      }
+    {% endif %}
+    .whatsapp-sidetab-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .whatsapp-sidetab:focus {
+    outline: 2px solid {{ section.settings.bg_color | default: '#25d366' }};
+    outline-offset: 2px;
+  }
+
+  @media print {
+    .whatsapp-sidetab {
+      display: none;
+    }
+  }
+</style>
+
+{%- liquid
+  assign whatsapp_number = section.settings.whatsapp_number | remove: 'https://wa.me/' | remove: 'http://wa.me/' | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' | strip
+  assign final_message = section.settings.whatsapp_msg
+  assign is_product_page = false
+
+  if request.page_type == 'product' or template.name == 'product' or template contains 'product'
+    assign is_product_page = true
+  endif
+
+  if section.settings.capture_product_link and is_product_page and product
+    assign product_full_url = canonical_url
+    if product_full_url == blank
+      assign product_full_url = shop.secure_url | append: product.url
+    endif
+
+    assign product_template_msg = section.settings.product_page_msg | default: 'Hello! I have a question about this product:'
+
+    if product_template_msg contains '[product_title]'
+      assign product_template_msg = product_template_msg | replace: '[product_title]', product.title
+    endif
+
+    if product_template_msg contains '[product_url]'
+      assign final_message = product_template_msg | replace: '[product_url]', product_full_url
+    else
+      assign final_message = product_template_msg | append: ' ' | append: product_full_url
+    endif
+  endif
+-%}
+
+{% if section.settings.show_whatsapp %}
+  <a 
+    href="https://wa.me/{{ whatsapp_number }}{% if final_message != blank %}?text={{ final_message | url_encode }}{% endif %}" 
+    class="whatsapp-sidetab" 
+    id="whatsapp-sidetab-widget"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-is-product="{{ is_product_page }}"
+    data-whatsapp-number="{{ whatsapp_number }}"
+    data-product-prefix="{{ section.settings.product_page_msg | default: 'Hello! I have a question about this product:' | escape }}"
+    data-product-title="{% if product %}{{ product.title | escape }}{% endif %}"
+    data-capture-product="{% if section.settings.capture_product_link %}true{% else %}false{% endif %}"
+    aria-label="{{ section.settings.tab_text | default: 'WhatsApp Us' }}"
+  >
+    <svg class="whatsapp-sidetab-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    </svg>
+    {% if section.settings.tab_text != blank %}
+      <span class="whatsapp-sidetab-text">{{ section.settings.tab_text }}</span>
+    {% endif %}
+  </a>
+
+  {% if section.settings.capture_product_link %}
+    <script>
+      (function() {
+        const sidetab = document.getElementById('whatsapp-sidetab-widget');
+        if (!sidetab) return;
+
+        const isProduct = sidetab.getAttribute('data-is-product') === 'true' || window.location.pathname.includes('/products/');
+        const captureProduct = sidetab.getAttribute('data-capture-product') === 'true';
+
+        if (isProduct && captureProduct) {
+          sidetab.addEventListener('click', function() {
+            const whatsappNumber = this.getAttribute('data-whatsapp-number');
+            if (!whatsappNumber) return;
+
+            const productTitle = this.getAttribute('data-product-title') || '';
+            let templateMsg = this.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
+            const currentUrl = window.location.href;
+
+            let finalMsg = '';
+            if (templateMsg.indexOf('[product_title]') !== -1) {
+              templateMsg = templateMsg.split('[product_title]').join(productTitle);
+            }
+
+            if (templateMsg.indexOf('[product_url]') !== -1) {
+              finalMsg = templateMsg.split('[product_url]').join(currentUrl);
+            } else {
+              finalMsg = templateMsg.trim() + ' ' + currentUrl;
+            }
+
+            this.href = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(finalMsg.trim());
+          });
+        }
+      })();
+    </script>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "WhatsApp Side Tab",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Basic Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_whatsapp",
+      "label": "Show WhatsApp Side Tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "WhatsApp Phone Number",
+      "info": "Include country code (e.g., +12135550198)"
+    },
+    {
+      "type": "textarea",
+      "id": "whatsapp_msg",
+      "label": "Default Message",
+      "default": "Hello! I need your assistance.",
+      "info": "Used on non-product pages"
+    },
+    {
+      "type": "header",
+      "content": "Side Tab Appearance"
+    },
+    {
+      "type": "text",
+      "id": "tab_text",
+      "label": "Tab Label",
+      "default": "WhatsApp Us"
+    },
+    {
+      "type": "select",
+      "id": "dock_side",
+      "label": "Screen Edge",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right Edge"
+        },
+        {
+          "value": "left",
+          "label": "Left Edge"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "vertical_position",
+      "min": 15,
+      "max": 85,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position (%)",
+      "default": 50,
+      "info": "50% is centered vertically"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Inner Rounded Corners",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 13
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient_bg",
+      "label": "Use WhatsApp Gradient",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#25d366"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text & Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_text_mobile",
+      "label": "Hide Text on Mobile",
+      "default": false,
+      "info": "Shows only the icon on phones"
+    },
+    {
+      "type": "header",
+      "content": "Product Page Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "capture_product_link",
+      "label": "Capture Product Link",
+      "default": true,
+      "info": "Sends product link when clicked on product page"
+    },
+    {
+      "type": "textarea",
+      "id": "product_page_msg",
+      "label": "Product Message",
+      "default": "Hello! I have a question about this product:",
+      "info": "Supports [product_title] and [product_url]"
+    }
+  ],
+  "presets": [
+    {
+      "name": "WhatsApp Side Tab"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,316 @@
+<style>
+  .messenger-sidetab {
+    position: fixed;
+    top: {{ section.settings.vertical_position | default: 50 }}%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1;
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    {% if section.settings.use_gradient_bg %}
+      background: linear-gradient(135deg, #00B2FF 0%, #006AFF 50%, #A033FF 100%);
+    {% else %}
+      background-color: {{ section.settings.bg_color | default: '#0084ff' }};
+    {% endif %}
+
+    {% if section.settings.dock_side == 'left' %}
+      left: 0;
+      right: auto;
+      border-radius: 0 {{ section.settings.border_radius | default: 8 }}px {{ section.settings.border_radius | default: 8 }}px 0;
+    {% else %}
+      right: 0;
+      left: auto;
+      border-radius: {{ section.settings.border_radius | default: 8 }}px 0 0 {{ section.settings.border_radius | default: 8 }}px;
+    {% endif %}
+  }
+
+  .messenger-sidetab:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+    {% if section.settings.dock_side == 'left' %}
+      transform: translateY(-50%) translateX(5px);
+    {% else %}
+      transform: translateY(-50%) translateX(-5px);
+    {% endif %}
+  }
+
+  .messenger-sidetab-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .messenger-sidetab-text {
+    font-size: {{ section.settings.text_size | default: 13 }}px;
+    font-weight: 600;
+    color: currentColor;
+    white-space: nowrap;
+    user-select: none;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    writing-mode: vertical-rl;
+  }
+
+  @media (max-width: 768px) {
+    .messenger-sidetab {
+      padding: 10px 8px;
+    }
+    {% if section.settings.hide_text_mobile %}
+      .messenger-sidetab .messenger-sidetab-text {
+        display: none;
+      }
+    {% endif %}
+    .messenger-sidetab-icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .messenger-sidetab:focus {
+    outline: 2px solid {{ section.settings.bg_color | default: '#0084ff' }};
+    outline-offset: 2px;
+  }
+
+  @media print {
+    .messenger-sidetab {
+      display: none;
+    }
+  }
+</style>
+
+{%- liquid
+  assign messenger_id = section.settings.messenger_username | remove: 'https://m.me/' | remove: 'http://m.me/' | remove: 'https://www.messenger.com/t/' | remove: 'https://facebook.com/' | remove: 'https://www.facebook.com/' | remove: '@' | strip
+  assign final_message = section.settings.messenger_msg
+  assign is_product_page = false
+
+  if request.page_type == 'product' or template.name == 'product' or template contains 'product'
+    assign is_product_page = true
+  endif
+
+  if section.settings.capture_product_link and is_product_page and product
+    assign product_full_url = canonical_url
+    if product_full_url == blank
+      assign product_full_url = shop.secure_url | append: product.url
+    endif
+
+    assign product_template_msg = section.settings.product_page_msg | default: 'Hello! I have a question about this product:'
+
+    if product_template_msg contains '[product_title]'
+      assign product_template_msg = product_template_msg | replace: '[product_title]', product.title
+    endif
+
+    if product_template_msg contains '[product_url]'
+      assign final_message = product_template_msg | replace: '[product_url]', product_full_url
+    else
+      assign final_message = product_template_msg | append: ' ' | append: product_full_url
+    endif
+  endif
+-%}
+
+{% if section.settings.show_messenger %}
+  <a 
+    href="https://m.me/{{ messenger_id }}{% if final_message != blank %}?text={{ final_message | url_encode }}{% endif %}" 
+    class="messenger-sidetab" 
+    id="messenger-sidetab-widget"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-is-product="{{ is_product_page }}"
+    data-messenger-id="{{ messenger_id }}"
+    data-product-prefix="{{ section.settings.product_page_msg | default: 'Hello! I have a question about this product:' | escape }}"
+    data-product-title="{% if product %}{{ product.title | escape }}{% endif %}"
+    data-capture-product="{% if section.settings.capture_product_link %}true{% else %}false{% endif %}"
+    aria-label="{{ section.settings.tab_text | default: 'Chat with Us' }}"
+  >
+    <svg class="messenger-sidetab-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"/>
+    </svg>
+    {% if section.settings.tab_text != blank %}
+      <span class="messenger-sidetab-text">{{ section.settings.tab_text }}</span>
+    {% endif %}
+  </a>
+
+  {% if section.settings.capture_product_link %}
+    <script>
+      (function() {
+        const sidetab = document.getElementById('messenger-sidetab-widget');
+        if (!sidetab) return;
+
+        const isProduct = sidetab.getAttribute('data-is-product') === 'true' || window.location.pathname.includes('/products/');
+        const captureProduct = sidetab.getAttribute('data-capture-product') === 'true';
+
+        if (isProduct && captureProduct) {
+          sidetab.addEventListener('click', function() {
+            const messengerId = this.getAttribute('data-messenger-id');
+            if (!messengerId) return;
+
+            const productTitle = this.getAttribute('data-product-title') || '';
+            let templateMsg = this.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
+            const currentUrl = window.location.href;
+
+            let finalMsg = '';
+            if (templateMsg.indexOf('[product_title]') !== -1) {
+              templateMsg = templateMsg.split('[product_title]').join(productTitle);
+            }
+
+            if (templateMsg.indexOf('[product_url]') !== -1) {
+              finalMsg = templateMsg.split('[product_url]').join(currentUrl);
+            } else {
+              finalMsg = templateMsg.trim() + ' ' + currentUrl;
+            }
+
+            this.href = 'https://m.me/' + messengerId + '?text=' + encodeURIComponent(finalMsg.trim());
+          });
+        }
+      })();
+    </script>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Messenger Side Tab",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Basic Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_messenger",
+      "label": "Show Messenger Side Tab",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "messenger_username",
+      "label": "Facebook Page Username or ID",
+      "info": "Enter your Facebook page username or ID (e.g., yourbrand or 100064567890123)"
+    },
+    {
+      "type": "textarea",
+      "id": "messenger_msg",
+      "label": "Default Message",
+      "default": "Hello! I need your assistance.",
+      "info": "Used on non-product pages"
+    },
+    {
+      "type": "header",
+      "content": "Side Tab Appearance"
+    },
+    {
+      "type": "text",
+      "id": "tab_text",
+      "label": "Tab Label",
+      "default": "Chat with Us"
+    },
+    {
+      "type": "select",
+      "id": "dock_side",
+      "label": "Screen Edge",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right Edge"
+        },
+        {
+          "value": "left",
+          "label": "Left Edge"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "vertical_position",
+      "min": 15,
+      "max": 85,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position (%)",
+      "default": 50,
+      "info": "50% is centered vertically"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Inner Rounded Corners",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Size",
+      "default": 13
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient_bg",
+      "label": "Use Messenger Gradient",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#0084ff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text & Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_text_mobile",
+      "label": "Hide Text on Mobile",
+      "default": false,
+      "info": "Shows only the icon on phones"
+    },
+    {
+      "type": "header",
+      "content": "Product Page Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "capture_product_link",
+      "label": "Capture Product Link",
+      "default": true,
+      "info": "Sends product link when clicked on product page"
+    },
+    {
+      "type": "textarea",
+      "id": "product_page_msg",
+      "label": "Product Message",
+      "default": "Hello! I have a question about this product:",
+      "info": "Supports [product_title] and [product_url]"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Messenger Side Tab"
+    }
+  ]
+}
+{% endschema %}

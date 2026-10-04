@@ -1,0 +1,980 @@
+
+<style>
+  .custom-messenger {
+    position: fixed;
+    z-index: {{ section.settings.z_index }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    {% if section.settings.use_gradient_bg %}
+      background: linear-gradient(135deg, #00B2FF 0%, #006AFF 50%, #A033FF 100%);
+    {% else %}
+      background-color: {{ section.settings.button_bg_color }};
+    {% endif %}
+    color: {{ section.settings.icon_color }};
+    box-shadow: {{ section.settings.shadow_x }}px {{ section.settings.shadow_y }}px {{ section.settings.shadow_blur }}px {{ section.settings.shadow_color }};
+  }
+
+  /* Floating Bubble Layout */
+  .custom-messenger.is-bubble {
+    width: {{ section.settings.button_size }}px;
+    height: {{ section.settings.button_size }}px;
+    {% if section.settings.button_position == 'bottom-right' %}
+      bottom: {{ section.settings.vertical_offset }}px;
+      right: {{ section.settings.horizontal_offset }}px;
+    {% elsif section.settings.button_position == 'bottom-left' %}
+      bottom: {{ section.settings.vertical_offset }}px;
+      left: {{ section.settings.horizontal_offset }}px;
+    {% elsif section.settings.button_position == 'top-right' %}
+      top: {{ section.settings.vertical_offset }}px;
+      right: {{ section.settings.horizontal_offset }}px;
+    {% elsif section.settings.button_position == 'top-left' %}
+      top: {{ section.settings.vertical_offset }}px;
+      left: {{ section.settings.horizontal_offset }}px;
+    {% endif %}
+    {% if section.settings.icon_style == 'circle' %}
+      border-radius: 50%;
+    {% elsif section.settings.icon_style == 'rounded' %}
+      border-radius: {{ section.settings.border_radius }}px;
+    {% elsif section.settings.icon_style == 'square' %}
+      border-radius: 0;
+    {% endif %}
+    text-align: center;
+    {% if section.settings.custom_width %}
+      width: {{ section.settings.button_width }}px;
+    {% endif %}
+  }
+
+  /* Side Tab Layout (Middle Screen Edge) */
+  .custom-messenger.is-sidetab {
+    top: {{ section.settings.side_tab_vertical_position }}%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    {% if section.settings.side_tab_text_orientation == 'horizontal' %}
+      flex-direction: row;
+    {% else %}
+      flex-direction: column;
+    {% endif %}
+    padding: {{ section.settings.side_tab_padding_vertical }}px {{ section.settings.side_tab_padding_horizontal }}px;
+    gap: 8px;
+    {% if section.settings.side_tab_side == 'right' %}
+      right: 0;
+      left: auto;
+      border-radius: {{ section.settings.side_tab_border_radius }}px 0 0 {{ section.settings.side_tab_border_radius }}px;
+    {% else %}
+      left: 0;
+      right: auto;
+      border-radius: 0 {{ section.settings.side_tab_border_radius }}px {{ section.settings.side_tab_border_radius }}px 0;
+    {% endif %}
+  }
+
+  .custom-messenger .widget-tab-text {
+    font-size: {{ section.settings.tab_text_size }}px;
+    font-weight: {{ section.settings.tab_text_weight }};
+    color: {{ section.settings.icon_color }};
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: 0.5px;
+    {% if section.settings.side_tab_text_orientation == 'upright' %}
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    {% elsif section.settings.side_tab_text_orientation == 'horizontal' %}
+      writing-mode: horizontal-tb;
+    {% else %}
+      writing-mode: vertical-rl;
+    {% endif %}
+  }
+
+  {% if section.settings.enable_hover_animation %}
+    .custom-messenger:hover {
+      {% if section.settings.use_gradient_bg %}
+        background: linear-gradient(135deg, #009FE6 0%, #005CE6 50%, #8E2BE6 100%);
+      {% else %}
+        background-color: {{ section.settings.hover_bg_color }};
+      {% endif %}
+      box-shadow: {{ section.settings.hover_shadow_x }}px {{ section.settings.hover_shadow_y }}px {{ section.settings.hover_shadow_blur }}px {{ section.settings.hover_shadow_color }};
+    }
+
+    .custom-messenger.is-sidetab:hover {
+      {% if section.settings.side_tab_side == 'right' %}
+        transform: translateY(-50%) translateX(-{{ section.settings.side_tab_hover_shift }}px);
+      {% else %}
+        transform: translateY(-50%) translateX({{ section.settings.side_tab_hover_shift }}px);
+      {% endif %}
+    }
+
+    .custom-messenger.is-bubble:hover {
+      {% if section.settings.hover_animation == 'scale' %}
+        transform: scale({{ section.settings.hover_scale }});
+      {% elsif section.settings.hover_animation == 'bounce' %}
+        animation: messenger-bounce 0.6s ease;
+      {% elsif section.settings.hover_animation == 'shake' %}
+        animation: messenger-shake 0.5s ease;
+      {% elsif section.settings.hover_animation == 'pulse' %}
+        animation: messenger-pulse 1s infinite;
+      {% elsif section.settings.hover_animation == 'rotate' %}
+        transform: rotate({{ section.settings.hover_rotate }}deg);
+      {% endif %}
+    }
+
+    @keyframes messenger-bounce {
+      0%, 20%, 60%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      80% { transform: translateY(-5px); }
+    }
+
+    @keyframes messenger-shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    @keyframes messenger-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  {% endif %}
+
+  .messenger-icon {
+    height: {{ section.settings.icon_size }}px;
+    width: {{ section.settings.icon_size }}px;
+    fill: {{ section.settings.icon_color }};
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+
+  /* Tooltip Styles (primarily for bubble mode) */
+  {% if section.settings.show_tooltip and section.settings.tooltip_text != blank %}
+    .custom-messenger.is-bubble::before {
+      content: "{{ section.settings.tooltip_text }}";
+      position: absolute;
+      {% if section.settings.button_position contains 'right' %}
+        right: 100%;
+        margin-right: 10px;
+      {% else %}
+        left: 100%;
+        margin-left: 10px;
+      {% endif %}
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: {{ section.settings.tooltip_bg_color }};
+      color: {{ section.settings.tooltip_text_color }};
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .custom-messenger.is-bubble::after {
+      content: "";
+      position: absolute;
+      {% if section.settings.button_position contains 'right' %}
+        right: 100%;
+        margin-right: 4px;
+        border-left: 6px solid {{ section.settings.tooltip_bg_color }};
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      {% else %}
+        left: 100%;
+        margin-left: 4px;
+        border-right: 6px solid {{ section.settings.tooltip_bg_color }};
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      {% endif %}
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .custom-messenger.is-bubble:hover::before,
+    .custom-messenger.is-bubble:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  {% endif %}
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .custom-messenger.is-bubble {
+      width: {{ section.settings.mobile_button_size }}px;
+      height: {{ section.settings.mobile_button_size }}px;
+      {% if section.settings.button_position contains 'top' %}
+        top: {{ section.settings.mobile_vertical_offset }}px;
+        bottom: auto;
+      {% else %}
+        bottom: {{ section.settings.mobile_vertical_offset }}px;
+        top: auto;
+      {% endif %}
+      {% if section.settings.button_position contains 'right' %}
+        right: {{ section.settings.mobile_horizontal_offset }}px;
+        left: auto;
+      {% else %}
+        left: {{ section.settings.mobile_horizontal_offset }}px;
+        right: auto;
+      {% endif %}
+    }
+
+    .custom-messenger.is-sidetab {
+      padding: {{ section.settings.side_tab_padding_vertical | times: 0.8 | round }}px {{ section.settings.side_tab_padding_horizontal | times: 0.8 | round }}px;
+    }
+
+    {% if section.settings.hide_tab_text_mobile %}
+      .custom-messenger.is-sidetab .widget-tab-text {
+        display: none;
+      }
+    {% endif %}
+
+    .messenger-icon {
+      height: {{ section.settings.mobile_icon_size }}px;
+      width: {{ section.settings.mobile_icon_size }}px;
+    }
+
+    {% if section.settings.hide_tooltip_mobile %}
+      .custom-messenger::before,
+      .custom-messenger::after {
+        display: none;
+      }
+    {% endif %}
+  }
+
+  /* Accessibility */
+  .custom-messenger:focus {
+    outline: 2px solid {{ section.settings.focus_color }};
+    outline-offset: 2px;
+  }
+
+  /* Print styles */
+  @media print {
+    .custom-messenger {
+      display: none;
+    }
+  }
+</style>
+
+{%- liquid
+  assign messenger_id = section.settings.messenger_username | remove: 'https://m.me/' | remove: 'http://m.me/' | remove: 'https://www.messenger.com/t/' | remove: 'https://facebook.com/' | remove: 'https://www.facebook.com/' | remove: '@' | strip
+  assign final_message = section.settings.messenger_msg
+  assign is_product_page = false
+
+  if request.page_type == 'product' or template.name == 'product' or template contains 'product'
+    assign is_product_page = true
+  endif
+
+  if section.settings.capture_product_link and is_product_page and product
+    assign product_full_url = canonical_url
+    if product_full_url == blank
+      assign product_full_url = shop.secure_url | append: product.url
+    endif
+
+    assign product_template_msg = section.settings.product_page_msg | default: 'Hello! I have a question about this product:'
+
+    if product_template_msg contains '[product_title]'
+      assign product_template_msg = product_template_msg | replace: '[product_title]', product.title
+    endif
+
+    if product_template_msg contains '[product_url]'
+      assign final_message = product_template_msg | replace: '[product_url]', product_full_url
+    else
+      assign final_message = product_template_msg | append: ' ' | append: product_full_url
+    endif
+  endif
+-%}
+
+{% if section.settings.show_messenger %}
+  <a 
+    href="https://m.me/{{ messenger_id }}{% if final_message != blank %}?text={{ final_message | url_encode }}{% endif %}" 
+    class="custom-messenger {% if section.settings.widget_layout == 'side_tab' %}is-sidetab is-sidetab--{{ section.settings.side_tab_side }}{% else %}is-bubble{% endif %}" 
+    id="custom-messenger-widget"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-is-product="{{ is_product_page }}"
+    data-messenger-id="{{ messenger_id }}"
+    data-product-prefix="{{ section.settings.product_page_msg | default: 'Hello! I have a question about this product:' | escape }}"
+    data-product-title="{% if product %}{{ product.title | escape }}{% endif %}"
+    data-capture-product="{% if section.settings.capture_product_link %}true{% else %}false{% endif %}"
+    aria-label="{% if section.settings.widget_layout == 'side_tab' and section.settings.show_tab_text and section.settings.tab_text != blank %}{{ section.settings.tab_text }}{% else %}Contact us on Messenger{% if section.settings.tooltip_text != blank %}: {{ section.settings.tooltip_text }}{% endif %}{% endif %}"
+    {% if section.settings.show_tooltip and section.settings.tooltip_text != blank and section.settings.widget_layout == 'bubble' %}
+      title="{{ section.settings.tooltip_text }}"
+    {% endif %}
+  >
+    {% if section.settings.use_custom_icon and section.settings.custom_icon != blank %}
+      <img src="{{ section.settings.custom_icon | img_url: 'master' }}" alt="Messenger" class="messenger-icon">
+    {% else %}
+      <svg class="messenger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"/>
+      </svg>
+    {% endif %}
+    {% if section.settings.widget_layout == 'side_tab' and section.settings.show_tab_text and section.settings.tab_text != blank %}
+      <span class="widget-tab-text">{{ section.settings.tab_text }}</span>
+    {% endif %}
+  </a>
+
+  {% if section.settings.capture_product_link %}
+    <script>
+      (function() {
+        const messengerWidget = document.getElementById('custom-messenger-widget');
+        if (!messengerWidget) return;
+
+        const isProduct = messengerWidget.getAttribute('data-is-product') === 'true' || window.location.pathname.includes('/products/');
+        const captureProduct = messengerWidget.getAttribute('data-capture-product') === 'true';
+
+        if (isProduct && captureProduct) {
+          messengerWidget.addEventListener('click', function() {
+            const messengerId = this.getAttribute('data-messenger-id');
+            if (!messengerId) return;
+
+            const productTitle = this.getAttribute('data-product-title') || '';
+            let templateMsg = this.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
+            const currentUrl = window.location.href;
+
+            let finalMsg = '';
+            if (templateMsg.indexOf('[product_title]') !== -1) {
+              templateMsg = templateMsg.split('[product_title]').join(productTitle);
+            }
+
+            if (templateMsg.indexOf('[product_url]') !== -1) {
+              finalMsg = templateMsg.split('[product_url]').join(currentUrl);
+            } else {
+              finalMsg = templateMsg.trim() + ' ' + currentUrl;
+            }
+
+            this.href = 'https://m.me/' + messengerId + '?text=' + encodeURIComponent(finalMsg.trim());
+          });
+        }
+      })();
+    </script>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Messenger Button",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Basic Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_messenger",
+      "label": "Show Messenger Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "messenger_username",
+      "label": "Facebook Page Username or ID",
+      "info": "Enter your Facebook page username or ID (e.g., yourbrand or 100064567890123)"
+    },
+    {
+      "type": "textarea",
+      "id": "messenger_msg",
+      "label": "Default Message",
+      "default": "Hello! I need your assistance.",
+      "info": "Used on non-product pages or when product link capturing is disabled"
+    },
+    {
+      "type": "header",
+      "content": "Widget Layout Style"
+    },
+    {
+      "type": "select",
+      "id": "widget_layout",
+      "label": "Widget Layout Mode",
+      "options": [
+        {
+          "value": "side_tab",
+          "label": "Side Tab (Middle Screen Edge)"
+        },
+        {
+          "value": "bubble",
+          "label": "Floating Bubble"
+        }
+      ],
+      "default": "side_tab"
+    },
+    {
+      "type": "header",
+      "content": "Side Tab Settings"
+    },
+    {
+      "type": "select",
+      "id": "side_tab_side",
+      "label": "Dock to Screen Edge",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right Edge"
+        },
+        {
+          "value": "left",
+          "label": "Left Edge"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "side_tab_vertical_position",
+      "min": 10,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Vertical Position (Middle %)",
+      "default": 50
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tab_text",
+      "label": "Show Tab Text",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "tab_text",
+      "label": "Tab Text",
+      "default": "Chat with Us"
+    },
+    {
+      "type": "select",
+      "id": "side_tab_text_orientation",
+      "label": "Tab Text Flow Direction",
+      "options": [
+        {
+          "value": "vertical",
+          "label": "Up to Down (Vertical)"
+        },
+        {
+          "value": "upright",
+          "label": "Up to Down (Upright Letters)"
+        },
+        {
+          "value": "horizontal",
+          "label": "Left to Right (Horizontal)"
+        }
+      ],
+      "default": "vertical"
+    },
+    {
+      "type": "range",
+      "id": "tab_text_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Text Size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "tab_text_weight",
+      "label": "Tab Text Weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "side_tab_border_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Border Radius",
+      "default": 8,
+      "info": "Applies to the inner edges facing into the page"
+    },
+    {
+      "type": "range",
+      "id": "side_tab_padding_vertical",
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Tab Vertical Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "side_tab_padding_horizontal",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Tab Horizontal Padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "side_tab_hover_shift",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Hover Slide Out",
+      "default": 5,
+      "info": "Distance the tab slides outward toward screen center on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_tab_text_mobile",
+      "label": "Hide Tab Text on Mobile",
+      "default": false,
+      "info": "Shows only the icon on mobile screens to save screen width"
+    },
+    {
+      "type": "header",
+      "content": "Product Page Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "capture_product_link",
+      "label": "Capture Product Link on Product Page",
+      "default": true,
+      "info": "When enabled, captures and sends the product link when on a product page"
+    },
+    {
+      "type": "textarea",
+      "id": "product_page_msg",
+      "label": "Product Page Message",
+      "default": "Hello! I have a question about this product:",
+      "info": "Product link is appended automatically. Placeholders supported: [product_title], [product_url]"
+    },
+    {
+      "type": "header",
+      "content": "Color & Icon Appearance"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient_bg",
+      "label": "Use Messenger Gradient Background",
+      "default": false,
+      "info": "Applies modern Messenger gradient (blue to purple)"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background Color",
+      "default": "#0084ff"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon & Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 14,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon Size",
+      "default": 22
+    },
+    {
+      "type": "header",
+      "content": "Bubble Mode Only Settings"
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Bubble Style",
+      "options": [
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "min": 10,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Bubble Button Size",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bubble Border Radius",
+      "default": 15,
+      "info": "Only applies to rounded style"
+    },
+    {
+      "type": "checkbox",
+      "id": "custom_width",
+      "label": "Use Custom Width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_width",
+      "min": 50,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Bubble Custom Width",
+      "default": 120,
+      "info": "Only applies when custom width is enabled"
+    },
+    {
+      "type": "select",
+      "id": "button_position",
+      "label": "Bubble Position",
+      "options": [
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        }
+      ],
+      "default": "bottom-right"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_offset",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Bubble Horizontal Offset",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "vertical_offset",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Bubble Vertical Offset",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Shadow Settings"
+    },
+    {
+      "type": "range",
+      "id": "shadow_x",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Shadow X Offset",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "shadow_y",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Shadow Y Offset",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Shadow Blur",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "shadow_color",
+      "label": "Shadow Color",
+      "default": "rgba(0,0,0,0.3)"
+    },
+    {
+      "type": "header",
+      "content": "Hover Effects"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_animation",
+      "label": "Enable Hover Animation",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "hover_animation",
+      "label": "Bubble Hover Animation Type",
+      "options": [
+        {
+          "value": "scale",
+          "label": "Scale"
+        },
+        {
+          "value": "bounce",
+          "label": "Bounce"
+        },
+        {
+          "value": "shake",
+          "label": "Shake"
+        },
+        {
+          "value": "pulse",
+          "label": "Pulse"
+        },
+        {
+          "value": "rotate",
+          "label": "Rotate"
+        }
+      ],
+      "default": "scale",
+      "info": "Applies when layout is set to Floating Bubble"
+    },
+    {
+      "type": "range",
+      "id": "hover_scale",
+      "min": 1.0,
+      "max": 1.5,
+      "step": 0.1,
+      "label": "Hover Scale Factor",
+      "default": 1.1,
+      "info": "Only applies to scale animation"
+    },
+    {
+      "type": "range",
+      "id": "hover_rotate",
+      "min": -360,
+      "max": 360,
+      "step": 15,
+      "unit": "deg",
+      "label": "Hover Rotation",
+      "default": 15,
+      "info": "Only applies to rotate animation"
+    },
+    {
+      "type": "color",
+      "id": "hover_bg_color",
+      "label": "Hover Background Color",
+      "default": "#0073e6"
+    },
+    {
+      "type": "range",
+      "id": "hover_shadow_x",
+      "min": -15,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "label": "Hover Shadow X",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "hover_shadow_y",
+      "min": -15,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "label": "Hover Shadow Y",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "hover_shadow_blur",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Hover Shadow Blur",
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "hover_shadow_color",
+      "label": "Hover Shadow Color",
+      "default": "rgba(0,0,0,0.4)"
+    },
+    {
+      "type": "header",
+      "content": "Tooltip Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tooltip",
+      "label": "Show Tooltip on Hover",
+      "default": true,
+      "info": "Used primarily in bubble mode"
+    },
+    {
+      "type": "text",
+      "id": "tooltip_text",
+      "label": "Tooltip Text",
+      "default": "Chat with us on Messenger"
+    },
+    {
+      "type": "color",
+      "id": "tooltip_bg_color",
+      "label": "Tooltip Background Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "tooltip_text_color",
+      "label": "Tooltip Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Custom Icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_icon",
+      "label": "Use Custom Icon",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_icon",
+      "label": "Custom Icon Image",
+      "info": "Upload a custom icon to replace the default Messenger icon"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_button_size",
+      "min": 35,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile Bubble Size",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile Icon Size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_horizontal_offset",
+      "min": 0,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Horizontal Offset",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_offset",
+      "min": 0,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Vertical Offset",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_tooltip_mobile",
+      "label": "Hide Tooltip on Mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Position & Stacking"
+    },
+    {
+      "type": "range",
+      "id": "z_index",
+      "min": 0,
+      "max": 1000,
+      "step": 100,
+      "label": "Z-Index",
+      "default": 500
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "color",
+      "id": "focus_color",
+      "label": "Focus Outline Color",
+      "default": "#0084ff",
+      "info": "Color for keyboard focus outline"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Messenger Support"
+    }
+  ]
+}
+{% endschema %}

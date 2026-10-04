@@ -1,0 +1,3 @@
+{% capture product_url %}{{ shop.url }}{{ product.url }}{% endcapture %}
+{% capture product_name %}{{ product.title | url_escape }}{% endcapture %}
+<a href="https://m.me/YOUR_PAGE_USERNAME?text=Hello,%20I%20would%20like%20to%20buy%20this%20product:%20{{ product_name }}%20{{ product_url }}" class="btn btn--buy-on-messenger" target="_blank">Order on Messenger</a>
