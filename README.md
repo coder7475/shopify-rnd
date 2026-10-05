@@ -44,6 +44,8 @@ A repository dedicated to Shopify research, theme customization snippets, operat
   - [SMS Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/SMS-MARKETING-GUIDE.md)
   - [WhatsApp Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/WHATSAPP-MARKETING-GUIDE.md)
   - [SEO & Content Marketing Strategy Guide](file:///home/fahad/Projects/shopify/marketing/SEO-CONTENT-MARKETING-GUIDE.md)
+  - [Paid Social Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/PAID-SOCIAL-MARKETING-GUIDE.md)
+  - [Google Ads Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/GOOGLE-ADS-MARKETING-GUIDE.md)
 - **Store Operations & Setup**:
   - [Product Review Setup via App (Judge.me)](file:///home/fahad/Projects/shopify/product_review_setup/product_review_setup_via_app.md)
   - [Custom Review Section with Metaobjects](file:///home/fahad/Projects/shopify/product_review_setup/custom_product_review_section_metaobjects.md)

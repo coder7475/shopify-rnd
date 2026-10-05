@@ -30,6 +30,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 - **Timeline:** Shows compounding results in 3-6 months
 
 ### 3. Paid Social Advertising
+- **Deep-Dive Guide:** [PAID-SOCIAL-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/PAID-SOCIAL-MARKETING-GUIDE.md)
 - **Platforms:** Meta (Facebook/Instagram), TikTok, Pinterest, Snapchat, LinkedIn
 - **Best Practices:**
   - Build after email flows and content are established
@@ -50,6 +51,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 - **Risk:** One bad campaign can lose 15% of list
 
 ### 6. Search Engine Marketing (Google Ads)
+- **Deep-Dive Guide:** [GOOGLE-ADS-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/GOOGLE-ADS-MARKETING-GUIDE.md)
 - **Google Shopping Ads:** Show product images, prices, and store name directly in search results
 - **Best for:** Products with clear search demand
 - **Priority:** Higher-intent clicks than standard search ads
