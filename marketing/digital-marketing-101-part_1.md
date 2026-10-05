@@ -15,6 +15,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 ## The 10 Core Digital Marketing Strategies
 
 ### 1. Email Marketing & Behavioral Flows
+- **Deep-Dive Guide:** [EMAIL-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/EMAIL-MARKETING-GUIDE.md)
 - **Welcome Series:** Triggered when customer signs up without buying (3 emails over 7 days)
 - **Abandoned Cart Sequence:** 3 emails at 1hr, 24hr, and 72hr intervals (recovers 10-30% of lost revenue)
 - **Post-Purchase Flow:** Shipping confirmation, product education, review request
@@ -22,6 +23,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 - **ROI:** Average Shopify store earns $36 for every $1 spent on email
 
 ### 2. SEO & Content Marketing
+- **Deep-Dive Guide:** [SEO-CONTENT-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/SEO-CONTENT-MARKETING-GUIDE.md)
 - **Product Page SEO:** Title tags, meta descriptions, schema markup, internal linking
 - **Blog Content:** 30-50 articles targeting buyer-intent and informational keywords
 - **Benefits:** Compounds over time, zero CAC after content creation
@@ -41,6 +43,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 - Platform-agnostic content strategy
 
 ### 5. SMS Marketing
+- **Deep-Dive Guide:** [SMS-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/SMS-MARKETING-GUIDE.md)
 - **ROI:** 12-30% click rates vs 3-5% on email
 - **Caution:** Most permission-sensitive channel
 - **Strategy:** Build after email flows mature
@@ -57,6 +60,7 @@ This marketing masterclass covers the essential digital marketing strategies tha
 - **Stat:** 1 in 4 Americans discover new products through influencers
 
 ### 8. Content Marketing
+- **Deep-Dive Guide:** [SEO-CONTENT-MARKETING-GUIDE.md](file:///home/fahad/Projects/shopify/marketing/SEO-CONTENT-MARKETING-GUIDE.md)
 - Buying guides, how-tos, comparison articles
 - Helps shoppers research before purchasing
 - Pairs directly with SEO for organic discovery

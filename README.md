@@ -41,9 +41,13 @@ A repository dedicated to Shopify research, theme customization snippets, operat
   - [Part 3: Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md)
   - [Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md)
   - [Email Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/EMAIL-MARKETING-GUIDE.md)
+  - [SMS Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/SMS-MARKETING-GUIDE.md)
+  - [WhatsApp Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/WHATSAPP-MARKETING-GUIDE.md)
+  - [SEO & Content Marketing Strategy Guide](file:///home/fahad/Projects/shopify/marketing/SEO-CONTENT-MARKETING-GUIDE.md)
 - **Store Operations & Setup**:
   - [Product Review Setup via App (Judge.me)](file:///home/fahad/Projects/shopify/product_review_setup/product_review_setup_via_app.md)
   - [Custom Review Section with Metaobjects](file:///home/fahad/Projects/shopify/product_review_setup/custom_product_review_section_metaobjects.md)
   - [Shopify Image Sizes Guide](file:///home/fahad/Projects/shopify/guides/SHOPIFY-IMAGE-SIZES-GUIDE.md)
+  - [Official Free Shopify Apps & Use Cases Guide](file:///home/fahad/Projects/shopify/guides/shopify_free_apps_guide.md)
   - [Horizon Theme Dual Logo Guideline](file:///home/fahad/Projects/shopify/guides/horizon_theme_dual_logo_guideline.md)
   - [Shopify SEO Blueprint](file:///home/fahad/Projects/shopify/seo/shopify-seo-guide.md)
