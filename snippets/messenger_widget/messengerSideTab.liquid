@@ -123,8 +123,8 @@
     id="messenger-sidetab-widget"
     target="_blank"
     rel="noopener noreferrer"
-    data-is-product="{{ is_product_page }}"
     data-messenger-id="{{ messenger_id }}"
+    data-default-msg="{{ section.settings.messenger_msg | escape }}"
     data-product-prefix="{{ section.settings.product_page_msg | default: 'Hello! I have a question about this product:' | escape }}"
     data-product-title="{% if product %}{{ product.title | escape }}{% endif %}"
     data-capture-product="{% if section.settings.capture_product_link %}true{% else %}false{% endif %}"
@@ -138,41 +138,53 @@
     {% endif %}
   </a>
 
-  {% if section.settings.capture_product_link %}
-    <script>
-      (function() {
-        const sidetab = document.getElementById('messenger-sidetab-widget');
-        if (!sidetab) return;
+  <script>
+    (function() {
+      const sidetab = document.getElementById('messenger-sidetab-widget');
+      if (!sidetab) return;
 
-        const isProduct = sidetab.getAttribute('data-is-product') === 'true' || window.location.pathname.includes('/products/');
+      function getMessengerUrl() {
+        const messengerId = sidetab.getAttribute('data-messenger-id');
+        if (!messengerId) return '#';
+
         const captureProduct = sidetab.getAttribute('data-capture-product') === 'true';
+        const isProduct = window.location.pathname.includes('/products/');
 
-        if (isProduct && captureProduct) {
-          sidetab.addEventListener('click', function() {
-            const messengerId = this.getAttribute('data-messenger-id');
-            if (!messengerId) return;
+        let message = sidetab.getAttribute('data-default-msg') || '';
 
-            const productTitle = this.getAttribute('data-product-title') || '';
-            let templateMsg = this.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
-            const currentUrl = window.location.href;
+        if (captureProduct && isProduct) {
+          let templateMsg = sidetab.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
+          
+          // Fallback to DOM product title if section is rendered outside direct product template scope
+          const productTitle = sidetab.getAttribute('data-product-title') 
+            || document.querySelector('h1.product__title, .product-title, h1')?.textContent?.trim() 
+            || '';
+          const currentUrl = window.location.href;
 
-            let finalMsg = '';
-            if (templateMsg.indexOf('[product_title]') !== -1) {
-              templateMsg = templateMsg.split('[product_title]').join(productTitle);
-            }
-
-            if (templateMsg.indexOf('[product_url]') !== -1) {
-              finalMsg = templateMsg.split('[product_url]').join(currentUrl);
-            } else {
-              finalMsg = templateMsg.trim() + ' ' + currentUrl;
-            }
-
-            this.href = 'https://m.me/' + messengerId + '?text=' + encodeURIComponent(finalMsg.trim());
-          });
+          if (templateMsg.indexOf('[product_title]') !== -1) {
+            templateMsg = templateMsg.split('[product_title]').join(productTitle);
+          }
+          if (templateMsg.indexOf('[product_url]') !== -1) {
+            message = templateMsg.split('[product_url]').join(currentUrl);
+          } else {
+            message = templateMsg.trim() + ' ' + currentUrl;
+          }
         }
-      })();
-    </script>
-  {% endif %}
+
+        return 'https://m.me/' + messengerId + (message ? '?text=' + encodeURIComponent(message.trim()) : '');
+      }
+
+      ['mouseenter', 'focus', 'touchstart'].forEach(function(evt) {
+        sidetab.addEventListener(evt, function() {
+          this.href = getMessengerUrl();
+        });
+      });
+
+      sidetab.addEventListener('click', function() {
+        this.href = getMessengerUrl();
+      });
+    })();
+  </script>
 {% endif %}
 
 {% schema %}
