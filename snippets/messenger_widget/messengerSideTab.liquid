@@ -143,22 +143,40 @@
       const sidetab = document.getElementById('messenger-sidetab-widget');
       if (!sidetab) return;
 
+      function isProductPage() {
+        if (window.location.pathname.includes('/products/')) return true;
+        if (document.querySelector('meta[property="og:type"][content="product"]')) return true;
+        if (window.ShopifyAnalytics && window.ShopifyAnalytics.meta && window.ShopifyAnalytics.meta.page && window.ShopifyAnalytics.meta.page.pageType === 'product') return true;
+        return false;
+      }
+
+      function getProductTitle() {
+        let title = sidetab.getAttribute('data-product-title') || '';
+        if (title) return title;
+
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle && ogTitle.content) {
+          return ogTitle.content.trim();
+        }
+
+        const heading = document.querySelector('h1.product__title, .product-title, .product__header h1, h1');
+        if (heading && heading.textContent) {
+          return heading.textContent.trim();
+        }
+
+        return document.title.split('–')[0].split('-')[0].split('|')[0].trim();
+      }
+
       function getMessengerUrl() {
         const messengerId = sidetab.getAttribute('data-messenger-id');
         if (!messengerId) return '#';
 
         const captureProduct = sidetab.getAttribute('data-capture-product') === 'true';
-        const isProduct = window.location.pathname.includes('/products/');
-
         let message = sidetab.getAttribute('data-default-msg') || '';
 
-        if (captureProduct && isProduct) {
+        if (captureProduct && isProductPage()) {
           let templateMsg = sidetab.getAttribute('data-product-prefix') || 'Hello! I have a question about this product:';
-          
-          // Fallback to DOM product title if section is rendered outside direct product template scope
-          const productTitle = sidetab.getAttribute('data-product-title') 
-            || document.querySelector('h1.product__title, .product-title, h1')?.textContent?.trim() 
-            || '';
+          const productTitle = getProductTitle();
           const currentUrl = window.location.href;
 
           if (templateMsg.indexOf('[product_title]') !== -1) {
@@ -171,17 +189,30 @@
           }
         }
 
-        return 'https://m.me/' + messengerId + (message ? '?text=' + encodeURIComponent(message.trim()) : '');
+        return 'https://m.me/' + encodeURIComponent(messengerId) + (message ? '?text=' + encodeURIComponent(message.trim()) : '');
       }
 
-      ['mouseenter', 'focus', 'touchstart'].forEach(function(evt) {
-        sidetab.addEventListener(evt, function() {
-          this.href = getMessengerUrl();
-        });
+      function updateHref() {
+        sidetab.href = getMessengerUrl();
+      }
+
+      // Pre-compute once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateHref);
+      } else {
+        updateHref();
+      }
+
+      ['mouseenter', 'focus', 'touchstart', 'pointerdown'].forEach(function(evt) {
+        sidetab.addEventListener(evt, updateHref, { passive: true });
       });
 
-      sidetab.addEventListener('click', function() {
-        this.href = getMessengerUrl();
+      sidetab.addEventListener('click', function(e) {
+        const url = getMessengerUrl();
+        this.href = url;
+        if (!url || url === '#') {
+          e.preventDefault();
+        }
       });
     })();
   </script>
