@@ -24,10 +24,10 @@ This masterclass reveals **10 distribution plays** to expand where you sell—sp
 
 | Part | Topic | Focus |
 |:---:|:---|:---|
-| **Part 1** | [Digital Marketing 101](file:///home/fahad/Projects/shopify/marketing/digital-marketing-101-part_1.md) | Email behavioral flows, SEO, paid social, CAC & retention |
-| **Part 2** | [Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md) | 10 pricing plays, margins, Shopify Functions, bundles & dynamic pricing |
+| **Part 1** | [Digital Marketing 101](./01-digital-marketing-101.md) | Email behavioral flows, SEO, paid social, CAC & retention |
+| **Part 2** | [Winning Pricing Strategies](./02-pricing-strategies.md) | 10 pricing plays, margins, Shopify Functions, bundles & dynamic pricing |
 | **Part 3** | **Winning Distribution Strategies** *(This Document)* | 10 sales channels, multi-channel math, Agentic storefronts, POS & B2B |
-| **Part 4** | [Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md) | 10 promotional plays, discount engines, referral loops & creator programs |
+| **Part 4** | [Winning Promotion Strategies](./04-promotion-strategies.md) | 10 promotional plays, discount engines, referral loops & creator programs |
 
 ---
 
@@ -374,4 +374,4 @@ Do not attempt to activate all channels on day one. Follow this structured 4-wee
 
 ---
 
-*This document is Part 3 of the Shopify Marketing Masterclass series. Cross-reference with [Part 1: Digital Marketing 101](file:///home/fahad/Projects/shopify/marketing/digital-marketing-101-part_1.md), [Part 2: Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md), and [Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md).*
+*This document is Part 3 of the Shopify Marketing Masterclass series. Cross-reference with [Part 1: Digital Marketing 101](./01-digital-marketing-101.md), [Part 2: Winning Pricing Strategies](./02-pricing-strategies.md), and [Part 4: Winning Promotion Strategies](./04-promotion-strategies.md).*

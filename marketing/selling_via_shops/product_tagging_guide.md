@@ -3,8 +3,24 @@
 > **Video Sources:**
 > - [How to tag Shopify products on Instagram in 2 mins (YouTube Shorts)](https://www.youtube.com/shorts/vhZ-nuHKIzI)
 > - [Facebook & Instagram Shoppable Posts Made EASY (YouTube Tutorial)](https://www.youtube.com/watch?v=Vj_cylLEPII)
-> 
+>
 > **Grounding:** Verified against official Meta Commerce Manager policies, Business Suite features, and platform limits.
+>
+> **Last Updated:** October 2026
+
+---
+
+## References
+
+| # | Source | URL | Notes |
+|---|--------|-----|-------|
+| 1 | How to tag Shopify products on Instagram in 2 mins | https://www.youtube.com/shorts/vhZ-nuHKIzI | Quick product tagging walkthrough |
+| 2 | Facebook & Instagram Shoppable Posts Made EASY | https://www.youtube.com/watch?v=Vj_cylLEPII | Full shoppable posts tutorial |
+| 3 | Instagram Help – Tag Products | https://help.instagram.com/191462054687226 | Official product tagging documentation |
+| 4 | Meta Business Suite | https://business.facebook.com | Cross-platform scheduling & publishing |
+| 5 | Meta Commerce Manager – Product Catalog | https://www.facebook.com/business/help/1648788025308551 | Catalog management reference |
+| 6 | Meta Commerce Policies | https://www.facebook.com/policies/commerce | Platform rules & tag limits |
+| 7 | Shopify – Publishing to Sales Channels | https://help.shopify.com/en/manual/products/details/publishing | Shopify product publishing guide |
 
 ---
 
@@ -12,9 +28,12 @@
 
 Product tagging transforms standard social media posts, reels, and stories into shoppable storefronts. Instead of asking customers to visit your bio link or search for items manually:
 - Users tap on product tags overlaid directly on images and videos.
-- They view product titles, pricing, and variants inside Meta’s product detail sheet.
+- They view product titles, pricing, and variants inside Meta's product detail sheet.
 - Tapping **"View on Website"** routes shoppers seamlessly to the corresponding product checkout page on Shopify.
 - This creates **free organic traffic and frictionless conversions** across both Facebook and Instagram.
+
+> [!NOTE]
+> **Checkout Model (2025 Change):** As of late 2025, Meta completed the transition away from native in-app checkout. All purchases through tagged posts now redirect to your Shopify website. The "View on Website" destination is now the universal checkout path for all markets. Ensure your Shopify store's checkout URL is configured in Meta Commerce Manager.
 
 ---
 
@@ -33,6 +52,10 @@ Before you can tag products, ensure the following setup is complete:
 5. **Meta Domain Verification & Shipping:**
    - Domain verified in Meta Business Settings.
    - Default shipping profile and processing times configured in Meta Commerce Manager.
+6. **Website Checkout URL (2025 Requirement):**
+   - In Meta Commerce Manager > Shop Settings, ensure a valid Shopify checkout URL is configured. This is mandatory following the in-app checkout transition.
+7. **Web Pixel Tracking (August 2026 Requirement):**
+   - If you previously used "Additional Scripts" for Meta pixel tracking on the Thank You / Order Status pages, these stopped working on **August 26, 2026**. Ensure you are using the official Facebook & Instagram app by Meta, which uses Shopify's Web Pixel framework for compliant tracking.
 
 ---
 
@@ -70,6 +93,12 @@ Before you can tag products, ensure the following setup is complete:
 3. Search and select up to **30 products** or product collections featured in the video.
 4. Publish. Viewers will see a persistent **"View Products"** shopping bag icon pinned in the lower-left corner during playback.
 
+### E. Affiliate Product Tagging (2026 — Creator/Partner Feature)
+Creators can now tag products with affiliate links directly in posts and Reels:
+1. Set up an affiliate partnership with the brand via Instagram's Creator Marketplace or direct brand partnership.
+2. When creating a post or Reel, select **Tag Products** and choose the brand's affiliated products.
+3. Commission tracking is integrated — brands get direct attribution, creators earn commissions on sales.
+
 ---
 
 ## 4. How to Tag Products on Facebook & Cross-Post via Meta Business Suite
@@ -106,11 +135,12 @@ Publishing from **Meta Business Suite** allows you to schedule and publish tagge
 11. Add your caption, strategic keywords, and 3–5 relevant hashtags.
 12. Click **Publish** or **Schedule** for later.
 
-### On Facebook Directly (Page Admin View):
-1. Navigate to your Page and create a new photo post or click on an existing photo.
-2. Click **Tag Products** / **Shop in Photo**.
-3. Click the item on the image, type the product name, and confirm.
-4. The published photo displays a **"Click to View Products"** link and a product carousel box underneath the post.
+### On Facebook Directly (Page Admin View — New Pages Experience):
+1. Navigate to your Page (switch to Page profile mode from your profile dropdown).
+2. Create a new photo post or click on an existing photo.
+3. Click **Tag Products** / **Shop in Photo**.
+4. Click the item on the image, type the product name, and confirm.
+5. The published photo displays a **"Click to View Products"** link and a product carousel box underneath the post.
 
 ---
 
@@ -123,8 +153,9 @@ Publishing from **Meta Business Suite** allows you to schedule and publish tagge
 | **Reels Tag Limit** | Up to **30 products or collections** | Meta Reels Shopping |
 | **Stories Tag Limit** | **1 Product Sticker** per story slide | Sticker tray constraint |
 | **Daily Publication Limit** | Max **25 tagged posts** per 24 hours (API/scheduling) | Anti-spam safeguard |
-| **Checkout Destination** | Directs to Shopify product page (*Checkout on Website*) | Meta phased out native US in-app checkout for non-Shopify-direct integrations |
+| **Checkout Destination** | Directs to Shopify product page (*Checkout on Website*) | In-app checkout deprecated late 2025; website checkout is now universal |
 | **Third-Party Tagging** | Can tag other approved business shops if permitted | Creator-merchant brand collaboration feature |
+| **Affiliate Tagging** | Available to approved creators via Creator Marketplace | Commission tracking integrated |
 
 ---
 
@@ -135,6 +166,8 @@ Publishing from **Meta Business Suite** allows you to schedule and publish tagge
 - **Issue: Synced Shopify product does not show up in search:**
   - *Fix:* In Shopify, go to **Products > [Your Product] > Sales Channels** and confirm **Facebook & Instagram** is checked. Also verify the item has inventory > 0 and is not marked draft.
 - **Issue: Clicking the tag shows "Product Unavailable":**
-  - *Fix:* Check Meta Commerce Manager for catalog policy rejections (e.g. prohibited goods, broken URL, missing shipping settings).
+  - *Fix:* Check Meta Commerce Manager for catalog policy rejections (e.g. prohibited goods, broken URL, missing shipping settings, missing checkout URL).
 - **Issue: Tag obstructs focal points:**
   - *Fix:* Always drag tags toward corners or item edges so human faces and essential product details remain clear.
+- **Issue: Conversion tracking broken after August 26, 2026:**
+  - *Fix:* Additional Scripts were deprecated on August 26, 2026. Migrate to the official **Facebook & Instagram by Meta** app which uses Shopify's Web Pixel framework. Go to `Shopify Admin > Settings > Customer Events` to verify.

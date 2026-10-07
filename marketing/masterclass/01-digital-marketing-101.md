@@ -152,4 +152,4 @@ This marketing masterclass covers the essential digital marketing strategies tha
 
 ---
 
-*This is Part 1 of the Marketing Masterclass series. Continue to [Part 2: Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md), [Part 3: Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md), and [Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md).*
+*This is Part 1 of the Marketing Masterclass series. Continue to [Part 2: Winning Pricing Strategies](./02-pricing-strategies.md), [Part 3: Winning Distribution Strategies](./03-distribution-strategies.md), and [Part 4: Winning Promotion Strategies](./04-promotion-strategies.md).*

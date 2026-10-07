@@ -21,9 +21,9 @@ This masterclass serves as the **final playbook of the 4-part Shopify Marketing 
 
 | Part | Topic | Document Link | Core Focus |
 |:---:|:---|:---|:---|
-| **Part 1** | Digital Marketing 101 | [digital-marketing-101-part_1.md](file:///home/fahad/Projects/shopify/marketing/digital-marketing-101-part_1.md) | Email behavioral flows, SEO, paid social ads, CAC & retention |
-| **Part 2** | Winning Pricing Strategies | [winning-pricing-strategies-part_2.md](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md) | 10 pricing plays, unit economics, bundles, and dynamic pricing |
-| **Part 3** | Winning Distribution Strategies | [winning-distribution-strategies-part_3.md](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md) | 10 sales channels, multi-channel math, Agentic storefronts, POS & B2B |
+| **Part 1** | Digital Marketing 101 | [01-digital-marketing-101.md](./01-digital-marketing-101.md) | Email behavioral flows, SEO, paid social ads, CAC & retention |
+| **Part 2** | Winning Pricing Strategies | [02-pricing-strategies.md](./02-pricing-strategies.md) | 10 pricing plays, unit economics, bundles, and dynamic pricing |
+| **Part 3** | Winning Distribution Strategies | [03-distribution-strategies.md](./03-distribution-strategies.md) | 10 sales channels, multi-channel math, Agentic storefronts, POS & B2B |
 | **Part 4** | **Winning Promotion Strategies** | *(This Document)* | 10 promotional plays, discount engines, referral loops & creator programs |
 
 ---
@@ -354,7 +354,7 @@ Do not launch all 10 promotion tactics at once. Execute this 4-week structured s
 ---
 
 *This document concludes the 4-Part Shopify Marketing Masterclass series:*
-- *[Part 1: Digital Marketing 101](file:///home/fahad/Projects/shopify/marketing/digital-marketing-101-part_1.md)*
-- *[Part 2: Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md)*
-- *[Part 3: Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md)*
-- *[Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md)*
+- *[Part 1: Digital Marketing 101](./01-digital-marketing-101.md)*
+- *[Part 2: Winning Pricing Strategies](./02-pricing-strategies.md)*
+- *[Part 3: Winning Distribution Strategies](./03-distribution-strategies.md)*
+- *[Part 4: Winning Promotion Strategies](./04-promotion-strategies.md)*
