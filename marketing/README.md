@@ -5,12 +5,13 @@
 
 ---
 
-## 📚 Channel Guides
+## 📚 Core Strategy & Channel Guides
 
-Standalone, actionable guides for each marketing channel.
+Standalone, actionable guides for foundational marketing strategy and specific acquisition channels.
 
 | File | Description |
 | :--- | :--- |
+| [Must_Know_MARKETING_STRATEGY.md](./Must_Know_MARKETING_STRATEGY.md) | **Must-know master strategy** — 3-pillar framework: Search Everywhere (SEvO/GEO), native DM commerce, & point-of-decision proof |
 | [SEO-CONTENT-MARKETING-GUIDE.md](./SEO-CONTENT-MARKETING-GUIDE.md) | SEO fundamentals, keyword research, on-page optimization, GEO for AI discovery |
 | [PAID-SOCIAL-MARKETING-GUIDE.md](./PAID-SOCIAL-MARKETING-GUIDE.md) | Meta, TikTok, Pinterest paid ads — campaigns, creative, budgeting |
 | [GOOGLE-ADS-MARKETING-GUIDE.md](./GOOGLE-ADS-MARKETING-GUIDE.md) | Google Search, Shopping, Performance Max campaigns |
