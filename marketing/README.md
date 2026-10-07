@@ -77,9 +77,3 @@ Notes from the Learn With Shopify YouTube series — foundational marketing stra
 | [masterclass/04-promotion-strategies.md](./masterclass/04-promotion-strategies.md) | Winning promotion plays |
 
 ---
-
-## 📅 Daily Notes
-
-| Folder | Description |
-| :--- | :--- |
-| [Daily/](./Daily/) | Day-by-day notes and research logs |

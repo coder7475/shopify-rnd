@@ -9,15 +9,18 @@ A repository dedicated to Shopify research, theme customization snippets, operat
 | Directory | Description |
 | :--- | :--- |
 | [`code/`](file:///home/fahad/Projects/shopify/code) | Liquid theme components, templates (`header.liquid`), and config schemas (`settings_schema.json`) |
+| [`snippets/`](file:///home/fahad/Projects/shopify/snippets) | Modular liquid snippets & UI components (WhatsApp, Messenger, Header navigation) |
 | [`product_review_setup/`](file:///home/fahad/Projects/shopify/product_review_setup) | Review system implementations via Shopify apps and native Metaobject architectures |
 | [`guides/`](file:///home/fahad/Projects/shopify/guides) | Operational blueprints (POS, image sizing, Inbox, QR payments, professional email, Search & Discovery) |
-| [`marketing/`](file:///home/fahad/Projects/shopify/marketing) | Strategic frameworks: Digital Marketing 101, Pricing, Distribution, Promotion, and Email Marketing |
+| [`marketing/`](file:///home/fahad/Projects/shopify/marketing) | Strategic frameworks, channel guides, creator strategy, and social commerce playbooks |
 | [`seo/`](file:///home/fahad/Projects/shopify/seo) | Search Engine Optimization strategies, meta prompts, and execution guides |
-| [`selling_via_shops/`](file:///home/fahad/Projects/shopify/selling_via_shops) | Setup, configuration, and product tagging for TikTok Shop, Facebook Shop, and Instagram Shop |
 | [`integrations/`](file:///home/fahad/Projects/shopify/integrations) | Meta (Facebook & Instagram) sales channel connections, settings, and marketing playbooks |
 | [`features/`](file:///home/fahad/Projects/shopify/features) | Research on native Shopify capabilities (Collective, Agentic Storefronts, Mobile App, Sales Channels) |
+| [`payments/`](file:///home/fahad/Projects/shopify/payments) | Payment gateway integration guides (e.g., EPS) |
+| [`support/`](file:///home/fahad/Projects/shopify/support) | Customer chat applications, R&D, and multi-channel support setup |
 | [`product-csvs/`](file:///home/fahad/Projects/shopify/product-csvs) | Sample product import datasets (Apparel, Jewelry, Home & Garden) |
 | [`resources/`](file:///home/fahad/Projects/shopify/resources) | Useful external tools, references, and platform documentation links |
+| [`NazaNoor/`](file:///home/fahad/Projects/shopify/NazaNoor) | Brand assets and logos |
 
 ---
 
@@ -35,11 +38,12 @@ A repository dedicated to Shopify research, theme customization snippets, operat
 
 ## 📚 Key Guides & Documentation
 
-- **Marketing Frameworks**:
-  - [Part 1: Digital Marketing 101](file:///home/fahad/Projects/shopify/marketing/digital-marketing-101-part_1.md)
-  - [Part 2: Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md)
-  - [Part 3: Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md)
-  - [Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md)
+- **Marketing Masterclass**:
+  - [Part 1: Digital Marketing 101](file:///home/fahad/Projects/shopify/marketing/masterclass/01-digital-marketing-101.md)
+  - [Part 2: Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/masterclass/02-pricing-strategies.md)
+  - [Part 3: Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/masterclass/03-distribution-strategies.md)
+  - [Part 4: Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/masterclass/04-promotion-strategies.md)
+- **Marketing Channel Playbooks**:
   - [Email Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/EMAIL-MARKETING-GUIDE.md)
   - [SMS Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/SMS-MARKETING-GUIDE.md)
   - [WhatsApp Marketing Execution Guide](file:///home/fahad/Projects/shopify/marketing/WHATSAPP-MARKETING-GUIDE.md)
