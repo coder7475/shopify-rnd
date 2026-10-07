@@ -12,13 +12,22 @@ Standalone, actionable guides for each marketing channel.
 | File | Description |
 | :--- | :--- |
 | [SEO-CONTENT-MARKETING-GUIDE.md](./SEO-CONTENT-MARKETING-GUIDE.md) | SEO fundamentals, keyword research, on-page optimization, GEO for AI discovery |
-| [EMAIL-MARKETING-GUIDE.md](./EMAIL-MARKETING-GUIDE.md) | Email list building, flows, segmentation, deliverability |
 | [PAID-SOCIAL-MARKETING-GUIDE.md](./PAID-SOCIAL-MARKETING-GUIDE.md) | Meta, TikTok, Pinterest paid ads — campaigns, creative, budgeting |
 | [GOOGLE-ADS-MARKETING-GUIDE.md](./GOOGLE-ADS-MARKETING-GUIDE.md) | Google Search, Shopping, Performance Max campaigns |
-| [SMS-MARKETING-GUIDE.md](./SMS-MARKETING-GUIDE.md) | SMS list growth, compliance, campaign and flow strategy |
-| [WHATSAPP-MARKETING-GUIDE.md](./WHATSAPP-MARKETING-GUIDE.md) | WhatsApp Business, broadcast lists, conversational commerce |
-| [SOCIAL-MESSENGER-MARKETING-GUIDE.md](./SOCIAL-MESSENGER-MARKETING-GUIDE.md) | Messenger, DM automation, chatbot flows |
-| [RETENTION-MARKETING-GUIDE.md](./RETENTION-MARKETING-GUIDE.md) | Loyalty, LTV, win-back flows, post-purchase strategy |
+
+---
+
+## 🔁 Retention & Conversational Lifecycle Marketing
+
+Coordinated retention strategy covering Email, SMS, WhatsApp, Social Messenger / DMs, and customer lifetime value.
+
+| File | Description |
+| :--- | :--- |
+| [retention/RETENTION-MARKETING-GUIDE.md](./retention/RETENTION-MARKETING-GUIDE.md) | **Master guide** — Unified retention machine (Email, SMS, WhatsApp & Social DMs) |
+| [retention/EMAIL-MARKETING-GUIDE.md](./retention/EMAIL-MARKETING-GUIDE.md) | Email list building, flows, segmentation, deliverability |
+| [retention/SMS-MARKETING-GUIDE.md](./retention/SMS-MARKETING-GUIDE.md) | SMS list growth, compliance, campaign and flow strategy |
+| [retention/WHATSAPP-MARKETING-GUIDE.md](./retention/WHATSAPP-MARKETING-GUIDE.md) | WhatsApp Business, broadcast lists, conversational commerce |
+| [retention/SOCIAL-MESSENGER-MARKETING-GUIDE.md](./retention/SOCIAL-MESSENGER-MARKETING-GUIDE.md) | Instagram DMs, Facebook Messenger, TikTok messaging & DM automation |
 
 ---
 

@@ -372,4 +372,4 @@ To establish your automated review system today:
 - *[Winning Pricing Strategies](file:///home/fahad/Projects/shopify/marketing/winning-pricing-strategies-part_2.md)*
 - *[Winning Distribution Strategies](file:///home/fahad/Projects/shopify/marketing/winning-distribution-strategies-part_3.md)*
 - *[Winning Promotion Strategies](file:///home/fahad/Projects/shopify/marketing/winning-promotion-strategies-part_4.md)*
-- *[Email Marketing Guide](file:///home/fahad/Projects/shopify/marketing/EMAIL-MARKETING-GUIDE.md)*
+- *[Email Marketing Guide](file:///home/fahad/Projects/shopify/marketing/retention/EMAIL-MARKETING-GUIDE.md)*
