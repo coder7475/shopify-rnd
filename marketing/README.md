@@ -14,6 +14,7 @@ Standalone, actionable guides for foundational marketing strategy and specific a
 | [Must_Know_MARKETING_STRATEGY.md](./Must_Know_MARKETING_STRATEGY.md) | **Must-know master strategy** — 3-pillar framework: Search Everywhere (SEvO/GEO), native DM commerce, & point-of-decision proof |
 | [SEO-CONTENT-MARKETING-GUIDE.md](./SEO-CONTENT-MARKETING-GUIDE.md) | SEO fundamentals, keyword research, on-page optimization, GEO for AI discovery |
 | [PAID-SOCIAL-MARKETING-GUIDE.md](./PAID-SOCIAL-MARKETING-GUIDE.md) | Meta, TikTok, Pinterest paid ads — campaigns, creative, budgeting |
+| [META-ADS-MARKETING-GUIDE.md](./META-ADS-MARKETING-GUIDE.md) | **Meta Ads Master Guide** — Foundations, algorithmic updates (Customer Lifecycle, Personalized Destinations), & AI creative workflows (PROOF / QUEST) |
 | [GOOGLE-ADS-MARKETING-GUIDE.md](./GOOGLE-ADS-MARKETING-GUIDE.md) | Google Search, Shopping, Performance Max campaigns |
 
 ---
