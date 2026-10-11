@@ -5,6 +5,7 @@ Synthesized from practitioner video masterclasses, 2025–2026 performance engin
 - 📹 **Source 2**: [How to Run Meta Ads For Beginners (Meta Ads Tutorial 2026)](https://www.youtube.com/watch?v=t-6c16BH-0U) (*Hostinger Academy*)
 - 📹 **Source 3 (Update)**: [DON’T Run Meta Ads Before Watching This Update!](https://www.youtube.com/watch?v=xOJ16CR8Ug8) (*WsCube Tech*)
 - 📹 **Source 4 (Advanced/AI)**: [GPT-6 Astra Changed Meta Ads Forever!](https://www.youtube.com/watch?v=gVPZU1btFA8) (*Higgsfield AI*)
+- 📹 **Source 5 (Shop Native & Meta Cross-Placement)**: [Shopify Tutorial: Advertising with Shop](https://www.youtube.com/watch?v=3zzWUoLVtZo) (*Josh Dichele*)
 
 ---
 
@@ -18,6 +19,7 @@ Synthesized from practitioner video masterclasses, 2025–2026 performance engin
 | **[Hostinger Academy](https://www.youtube.com/watch?v=t-6c16BH-0U)** | Hostinger Web & Marketing Team | Primary Educational Tutorial | General Ads Manager structure (Campaign / Ad Set / Ad), Advantage+ placements, budget types, diagnostic metrics (Frequency, CTR, Hook rate). | **Universal Setup Baseline** for landing pages, funnel mechanics, and analytical troubleshooting. |
 | **[WsCube Tech Update](https://www.youtube.com/watch?v=xOJ16CR8Ug8)** | WsCube Tech Performance Marketing Lead | Practitioner Field Intelligence | Critical 2025/2026 Meta Ads UI shifts: Customer Lifecycle exclusions, Personalized Destinations, Advantage+ creative auto-enhancement pitfalls. | **Governance & Guardrail Layer** preventing ad budget waste on returning buyers and distorted AI auto-crops. |
 | **[Higgsfield AI](https://www.youtube.com/watch?v=gVPZU1btFA8)** | Higgsfield AI (Adil) | Applied Workflow Demonstration | Generative AI creative production (Astra / Higgsfield MCP), PROOF framework (e-com), QUEST framework (services), Ad Library reverse-engineering, organic pre-testing. | **Creative Scaling Layer** transforming static hooks into high-converting UGC assets at low production cost. |
+| **[Josh Dichele (Shop App)](https://www.youtube.com/watch?v=3zzWUoLVtZo)** | Shopify Growth Specialist (Josh Dichele) | Platform-Specific Masterclass | Shopify Shop App ads & Shop Campaigns, CAC-capped bidding, target ROAS rules, Shop Cash leverage, and Meta cross-placement. | **Native Commerce Layer** utilizing Shopify's 1-tap Shop Pay network and cross-platform Meta distribution. |
 
 ---
 
@@ -44,6 +46,11 @@ OFFICIAL METADATA VALIDATION CHECKLIST (META BUSINESS HELP CENTER & SHOPIFY DOCS
 4. Advantage+ Creative Controls (Meta Ads Help Center):
    - [VERIFIED] Separates standard enhancements (brightness/crop) from generative AI features (image expansion, background generation).
    - [VERIFIED] Performance Best Practice: Turn OFF experimental "Test new creative features" to protect branding and aspect ratios.
+
+5. Shop App & Shop Campaigns (Shopify Help Center):
+   - [VERIFIED] Native marketplace app (100M+ registered Shop Pay users).
+   - [VERIFIED] Shop Campaigns offers performance-based customer acquisition cost (CAC) and ROAS targeting.
+   - [VERIFIED] Supports multi-channel distribution: displays ads on both Shop App and Meta (Facebook & Instagram).
 ========================================================================================================================
 ```
 
@@ -79,6 +86,11 @@ flowchart TD
         Angle --> Launch["Launch & Monitor Metric Triad"]
         Launch --> Metrics["Hook Rate (>25%) | CTR (>1.5%) | CPA vs Target"]
         Metrics --> Fatigue["Check Frequency (>2.5 = Refresh Creative)"]
+    end
+
+    subgraph S6["Step 6: Native Shop App Scaling"]
+        Fatigue --> Shop["Shop Campaigns (Shop App + Meta Placement)"]
+        Shop --> CAC["CAC Cap + Shop Pay 1-Tap Checkout + Shop Cash Boost"]
     end
 ```
 
@@ -240,6 +252,60 @@ Customize your Ads Manager columns to display:
 
 ---
 
+### Step 8: Native Social Commerce — Advertising with the Shop App & Meta Cross-Placement
+*Primary Reference:* [Shopify Tutorial: Advertising with Shop](https://www.youtube.com/watch?v=3zzWUoLVtZo) (*Josh Dichele*)
+
+> 📺 **VIDEO DEMO QUEUE**:
+> - [▶️ Click here to watch Shop App Ads Overview & Access (00:50) ↗](https://www.youtube.com/watch?v=3zzWUoLVtZo&t=50s) *(Josh Dichele: Navigating Shopify Admin Sales Channels > Shop > Advertising)*
+> - [▶️ Click here to watch Setting Tactics & Meta Cross-Placement (02:00) ↗](https://www.youtube.com/watch?v=3zzWUoLVtZo&t=120s) *(Josh Dichele: Enabling ads across both the Shop App and Meta: Facebook & Instagram)*
+> - [▶️ Click here to watch Setting CAC Cap & Target ROAS (03:30) ↗](https://www.youtube.com/watch?v=3zzWUoLVtZo&t=210s) *(Josh Dichele: How Customer Acquisition Cost caps and Target ROAS work)*
+> - [▶️ Click here to watch The 30–60–90 Day Optimization Rule (08:30) ↗](https://www.youtube.com/watch?v=3zzWUoLVtZo&t=510s) *(Josh Dichele: Why you must not kill Shop campaigns early and how to review weekly)*
+
+The **Shop App** is Shopify's proprietary marketplace application with over 100 million buyers who store their credit cards and shipping details inside **Shop Pay** for 1-tap checkout. Advertising on Shop operates via **Shop Campaigns**, which offers unique advantages over standard Meta Ads Manager campaigns.
+
+#### 1. Why Shop App Advertising Matters for Meta Advertisers
+- **Frictionless 1-Tap Conversion**: Standard Meta ads redirect to a mobile web browser where users may abandon checkout due to typing shipping or credit card info. Shop Campaigns utilize Shop Pay's saved credentials across millions of Shopify merchants.
+- **Pay-for-Customer Acquisition (CPA-capped model)**: Unlike Meta's impression-based auction (CPM) where you pay regardless of conversions, Shop Campaigns lets you define your **maximum acceptable Customer Acquisition Cost (CAC)** and **Target ROAS**.
+- **Shop Cash Buyer Incentive**: Shopify frequently provides buyers with **Shop Cash multipliers** (e.g., $5 to $10 bonus Shop Cash funded by Shopify), subsidizing discounts for the buyer without reducing merchant margins.
+
+#### 2. Step-by-Step Setup Inside Shopify Admin
+1. **Navigate to the Channel**:
+   - In Shopify Admin, click on **Sales Channels** in the left sidebar.
+   - Click **Shop**.
+   - Select **Advertising** (or **Campaigns**).
+   - In the top-right corner, click **Create Campaign**.
+2. **Naming & Tactics (The Meta Synergy)**:
+   - Name your campaign clearly (e.g., `Shop-Ads_Prospecting_Meta-Cross_Q4`).
+   - Under **Tactics**, you will see distribution choices:
+     - **Ads on Shop**: Displays your products directly in the Shop App home feed, search results, and category collections.
+     - **Ads on Meta (Facebook & Instagram)**: *Crucial feature*. Allows Shopify's algorithm to programmatically deliver your ads into Facebook and Instagram feeds, routing shoppers directly into native Shop Pay 1-tap checkout.
+     - *Best Practice*: Enable **both** options. Josh Dichele notes that including Meta cross-placement delivers significantly higher sales velocity than Shop App placements alone.
+3. **Setting Bidding & Budget Controls**:
+   - **Customer Acquisition Cost (CAC)**: Set your target cost to acquire a *net-new* customer. Shopify suggests a benchmark based on historical store conversion rates (e.g., $35–$45).
+     - *Math Rule*: Align your CAC cap with your Average Order Value (AOV) and gross margin ($AOV \times Margin \ge CAC$).
+   - **Target ROAS**: Define your target multiplier (e.g., $1.2\times$ to $2.0\times$).
+   - **Daily Budget**: Establish your daily spending ceiling.
+
+#### 3. Execution & Optimization Best Practices
+
+| Best Practice Rule | Explanation & Guidance |
+| :--- | :--- |
+| **The 30–60–90 Day Lifespan Rule** | Do **not** cancel or alter campaigns after 3–5 days. Shopify's customer matching model needs 30 days to build predictive purchase cohorts. Most brands see ROAS surge significantly *after* day 30. |
+| **Weekly (Not Daily) Monitoring** | Avoid micro-optimizing daily fluctuations. Check results once or twice a week. Track actual CAC vs. Target CAC. |
+| **Performance Outperforms Estimates** | Shopify’s projected results in the setup modal are intentionally conservative. In practice, mature Shop Campaigns consistently yield higher ROAS and lower CAC than the initial estimated ranges. |
+
+#### 4. Comparison: Standard Meta Ads Manager vs. Shop Campaigns
+
+| Dimension | Standard Meta Ads Manager | Shop Campaigns via Shop App & Meta |
+| :--- | :--- | :--- |
+| **Billing Model** | Impression-based (CPM). You pay for every view regardless of purchase. | Performance-targeted (CAC Cap & Target ROAS). Focuses strictly on customer acquisition. |
+| **Checkout Experience** | Mobile website landing page (Higher friction for guest checkout). | Native **Shop Pay 1-tap checkout** (Pre-saved payment and address details). |
+| **Buyer Incentives** | Merchant-funded coupons only. | **Shop Cash boosts** co-funded by Shopify without eroding product profit margins. |
+| **Primary Placement** | Full Meta network (Feed, Stories, Reels, Audience Network, Search). | Shop App Home & Search + Targeted dynamic Meta placements. |
+| **Best Used For** | Broad brand storytelling, custom creative angles (PROOF/QUEST), and video testing. | Pure conversion harvesting, frictionless 1-tap product checkout, and risk-controlled customer acquisition. |
+
+---
+
 ## 3. Quick-Reference Launch Checklist
 
 ```markdown
@@ -252,4 +318,5 @@ Customize your Ads Manager columns to display:
 - [ ] 7. Ad creative structured with PROOF (E-com) or QUEST (Services).
 - [ ] 8. Hook validated organically or benchmarked against 60+ day Ad Library winners.
 - [ ] 9. Custom columns configured in Ads Manager for Hook Rate, CTR (Link), and CPA/ROAS.
+- [ ] 10. Shop Campaigns configured in Shopify Admin (Shop App + Meta cross-placement enabled with CAC cap).
 ```
