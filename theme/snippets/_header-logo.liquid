@@ -1,0 +1,50 @@
+{%- comment -%}
+  Block: _header-logo.liquid
+  Location in theme: /blocks/_header-logo.liquid
+
+  Renders the desktop logo and an optional separate mobile logo.
+  Uses CSS classes to toggle visibility at the 750px breakpoint.
+  Falls back to shop name text if no logos are uploaded.
+{%- endcomment -%}
+
+{%- liquid
+  assign mobile_logo = settings.mobile_logo | default: settings.logo
+-%}
+
+<div class="header-logo">
+  <a href="{{ routes.root_url }}" class="header-logo__link">
+    {%- if settings.logo != blank -%}
+      {{
+        settings.logo
+        | image_url: width: 600
+        | image_tag:
+          class: 'header-logo__image header-logo--desktop',
+          alt: shop.name,
+          loading: 'eager'
+      }}
+    {%- endif -%}
+
+    {%- if mobile_logo != blank -%}
+      {{
+        mobile_logo
+        | image_url: width: 400
+        | image_tag:
+          class: 'header-logo__image header-logo--mobile',
+          alt: shop.name,
+          loading: 'eager'
+      }}
+    {%- endif -%}
+
+    {%- if settings.logo == blank and settings.mobile_logo == blank -%}
+      <span class="header-logo__text">{{ shop.name }}</span>
+    {%- endif -%}
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Header logo",
+  "tag": null,
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,500 @@
+{% doc %}
+  @prompt
+    Create a product list carousel block that copies all the existing product list section functionality, with added autoplay for the carousel. The carousel should auto-advance through products at a configurable interval (default 3 seconds), include pause-on-hover behavior, smooth slide transitions, and navigation arrows and dot indicators. The autoplay speed should be adjustable via a theme editor setting. Match the existing section's product card layout, grid settings, and styling., not featured product, rather featured collection list, collection list like new arriavals shows products of a single collecetion, allow customizing arrow cursor button, allow customizing heading text, allow customizing arrow buttons show or hide
+{% enddoc %}
+
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-pc-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-pc-{{ ai_gen_id }}__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__title {
+    margin: 0;
+    font-family: {{ settings.type_heading_font.family }}, serif;
+    font-size: {{ block.settings.heading_size }}px;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__view-all {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 180ms ease, color 180ms ease;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__view-all:hover,
+  .ai-pc-{{ ai_gen_id }}__view-all:focus-visible {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__viewport {
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__track {
+    display: flex;
+    gap: {{ block.settings.gap }}px;
+    transition: transform 420ms ease;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    will-change: transform;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__slide {
+    flex: 0 0 calc((100% - ({{ block.settings.columns_desktop | minus: 1 }} * {{ block.settings.gap }}px)) / {{ block.settings.columns_desktop }});
+    min-width: 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__image {
+    display: block;
+    aspect-ratio: {{ block.settings.image_ratio }};
+    overflow: hidden;
+    background: {{ block.settings.image_background }};
+    border-radius: {{ settings.card_corner_radius }}px;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__image img,
+  .ai-pc-{{ ai_gen_id }}__image svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__info {
+    padding-top: 12px;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__name {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ai-pc-{{ ai_gen_id }}__price {
+    margin-top: 5px;
+    font-size: 14px;
+    color: {{ block.settings.muted_color }};
+  }
+
+  @media (max-width: 749px) {
+    .ai-pc-{{ ai_gen_id }}__slide {
+      flex-basis: calc((100% - ({{ block.settings.columns_mobile | minus: 1 }} * {{ block.settings.gap }}px)) / {{ block.settings.columns_mobile }});
+    }
+
+    .ai-pc-{{ ai_gen_id }}__title {
+      font-size: 24px;
+    }
+  }
+{% endstyle %}
+
+<product-carousel-{{ ai_gen_id }}
+  class="ai-pc-{{ ai_gen_id }}"
+  data-interval="{{ block.settings.autoplay_interval | times: 1000 }}"
+  data-autoplay="{{ block.settings.autoplay }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-pc-{{ ai_gen_id }}__head">
+    <h2 class="ai-pc-{{ ai_gen_id }}__title">{{ block.settings.heading }}</h2>
+    {% if block.settings.show_view_all and block.settings.collection != blank %}
+      <a
+        href="{{ block.settings.collection.url }}"
+        class="ai-pc-{{ ai_gen_id }}__view-all"
+      >
+        {{ block.settings.view_all_label | default: 'View all' }}
+      </a>
+    {% endif %}
+  </div>
+
+  {% if block.settings.collection != blank %}
+    <div class="ai-pc-{{ ai_gen_id }}__viewport">
+      <div class="ai-pc-{{ ai_gen_id }}__track" data-track>
+        {% for product in block.settings.collection.products limit: block.settings.product_limit %}
+          <article class="ai-pc-{{ ai_gen_id }}__slide">
+            <a class="ai-pc-{{ ai_gen_id }}__image" href="{{ product.url }}">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 800 }}"
+                  srcset="
+                    {{ product.featured_image | image_url: width: 360 }} 360w,
+                    {{ product.featured_image | image_url: width: 533 }} 533w,
+                    {{ product.featured_image | image_url: width: 720 }} 720w,
+                    {{ product.featured_image | image_url: width: 940 }} 940w,
+                    {{ product.featured_image | image_url: width: 1066 }} 1066w
+                  "
+                  sizes="(max-width: 749px) calc((100vw - 32px) / {{ block.settings.columns_mobile }}), calc((100vw - 64px) / {{ block.settings.columns_desktop }})"
+                  alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                  loading="lazy"
+                  decoding="async"
+                  width="{{ product.featured_image.width | default: 800 }}"
+                  height="{{ product.featured_image.height | default: 1000 }}"
+                >
+              {% else %}
+                {{ 'product-apparel-1' | placeholder_svg_tag }}
+              {% endif %}
+            </a>
+            <div class="ai-pc-{{ ai_gen_id }}__info">
+              <h3 class="ai-pc-{{ ai_gen_id }}__name">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+              <div class="ai-pc-{{ ai_gen_id }}__price">{{ product.price | money }}</div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>Select a collection in the block settings to show its products.</p>
+  {% endif %}
+</product-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PC{{ ai_gen_id }} extends HTMLElement {
+      connectedCallback() {
+        this.track = this.querySelector('[data-track]');
+        if (!this.track) return;
+        this.slides = [...this.track.children];
+        if (!this.slides.length) return;
+
+        this.index = 0;
+        this.auto = this.dataset.autoplay === 'true';
+        this.ms = +this.dataset.interval;
+
+        this.update();
+
+        this.onmouseenter = this.stop;
+        this.onmouseleave = this.start;
+        this.onfocusin = this.stop;
+        this.onfocusout = this.start;
+
+        this.setupTouch();
+        this.start();
+
+        addEventListener('resize', () => this.update());
+      }
+
+      visibleColumns() {
+        return innerWidth <= 749 ? {{ block.settings.columns_mobile }} : {{ block.settings.columns_desktop }};
+      }
+
+      pages() {
+        return Math.max(1, this.slides.length - this.visibleColumns() + 1);
+      }
+
+      update() {
+        this.index = Math.max(0, Math.min(this.index, this.pages() - 1));
+        const slideWidth = this.slides[0].getBoundingClientRect().width + {{ block.settings.gap }};
+        this.track.style.transform = `translateX(-${this.index * slideWidth}px)`;
+      }
+
+      move(n) {
+        this.index = (this.index + n + this.pages()) % this.pages();
+        this.update();
+      }
+
+      setupTouch() {
+        let startX = 0;
+        let startY = 0;
+        let distX = 0;
+        let isDragging = false;
+        let isHorizontal = null;
+
+        this.track.addEventListener(
+          'touchstart',
+          e => {
+            if (e.touches.length > 1 || this.pages() <= 1) return;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            distX = 0;
+            isDragging = false;
+            isHorizontal = null;
+            this.stop();
+          },
+          { passive: true }
+        );
+
+        this.track.addEventListener(
+          'touchmove',
+          e => {
+            if (e.touches.length > 1 || isHorizontal === false || !this.slides.length) return;
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            distX = currentX - startX;
+            const distY = currentY - startY;
+
+            if (isHorizontal === null) {
+              if (Math.abs(distX) >= 6 || Math.abs(distY) >= 6) {
+                if (Math.abs(distX) > Math.abs(distY)) {
+                  isHorizontal = true;
+                  isDragging = true;
+                } else {
+                  isHorizontal = false;
+                  return;
+                }
+              }
+            }
+
+            if (isHorizontal) {
+              if (e.cancelable) e.preventDefault();
+              let dist = distX;
+              if ((this.index === 0 && dist > 0) || (this.index === this.pages() - 1 && dist < 0)) {
+                dist *= 0.35;
+              }
+              this.track.style.transition = 'none';
+              const slideWidth = this.slides[0].getBoundingClientRect().width + {{ block.settings.gap }};
+              this.track.style.transform = `translateX(${-this.index * slideWidth + dist}px)`;
+            }
+          },
+          { passive: false }
+        );
+
+        const endDrag = () => {
+          this.track.style.transition = '';
+          if (isDragging) {
+            const threshold = 40;
+            if (distX < -threshold) {
+              if (this.index < this.pages() - 1) this.move(1);
+              else this.update();
+            } else if (distX > threshold) {
+              if (this.index > 0) this.move(-1);
+              else this.update();
+            } else {
+              this.update();
+            }
+            setTimeout(() => {
+              isDragging = false;
+            }, 100);
+          }
+          this.start();
+        };
+
+        this.track.addEventListener('touchend', endDrag);
+        this.track.addEventListener('touchcancel', () => {
+          this.track.style.transition = '';
+          this.update();
+          isDragging = false;
+          this.start();
+        });
+
+        this.track.addEventListener(
+          'click',
+          e => {
+            if (isDragging) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+          },
+          true
+        );
+      }
+
+      start() {
+        if (this.auto && this.pages() > 1) {
+          this.stop();
+          this.timer = setInterval(() => this.move(1), this.ms);
+        }
+      }
+
+      stop() {
+        clearInterval(this.timer);
+      }
+    }
+
+    customElements.define('product-carousel-{{ ai_gen_id }}', PC{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product carousel",
+  "tag": null,
+  "class": "product-carousel-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading text",
+      "default": "New arrivals"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "'View all' label",
+      "default": "View all"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Products to show",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_interval",
+      "label": "Autoplay interval",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Card gap",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        {
+          "value": "1/1",
+          "label": "Square"
+        },
+        {
+          "value": "4/5",
+          "label": "Portrait"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#3a3a3a"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#6b626d"
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Image background",
+      "default": "#f0e6f6"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product carousel"
+    }
+  ]
+}
+{% endschema %}
