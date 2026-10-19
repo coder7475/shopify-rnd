@@ -1,17 +1,18 @@
 # Shopify R&D and Customization Hub
 
-> Production-ready Liquid theme overrides, operational SOPs, marketing frameworks, and omnichannel integrations for the [Naza Noor](https://nazanoor.com) Shopify store.
+> An open-source toolkit of production-ready Liquid theme overrides, operational SOPs, omnichannel growth playbooks, and 2026 e-commerce architectures for modern Shopify stores.
 
 [![Shopify](https://img.shields.io/badge/Shopify-Online_Store_2.0-95BF47?logo=shopify&logoColor=white)](https://shopify.dev)
 [![Liquid](https://img.shields.io/badge/Theme_Engine-Liquid-4A90E2)](https://shopify.dev/docs/api/liquid)
 [![Edition](https://img.shields.io/badge/Shopify_Edition-Spring_2026_%22Everywhere%22-green)](https://shopify.dev)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/Docs-Structured_Guides-blue)](./docs/README.md)
 
 ---
 
 ## Why This Exists
 
-Scaling a Shopify store requires solving technical, operational, and commercial challenges simultaneously. This repository is the single source of truth for:
+Scaling a Shopify store requires solving technical, operational, and commercial challenges simultaneously. This open-source repository serves as a comprehensive developer hub and operational knowledge base for:
 
 1. **Production Theme Snippets**: Drop-in Liquid code and settings schemas for dual logos, floating social widgets, and conversion blocks without third-party app bloat.
 2. **Operational SOPs**: Step-by-step documentation for domain verification, SPF/DKIM/DMARC email authentication, POS, and localized payment gateways.
@@ -81,7 +82,7 @@ Launch campaigns and conversational commerce funnels:
 | [`docs/theme/`](./docs/theme) | Implementation docs for theme customizations (logos, z-index fixes) |
 | [`docs/archive/`](./docs/archive) | Superseded research notes and legacy drafts kept for historical context |
 | [`data/product-csvs/`](./data/product-csvs) | Tested CSV datasets (Apparel with Metafields, Jewelry, Home & Garden) |
-| [`assets/brand/logos/`](./assets/brand/logos) | Vector SVG and raster PNG brand assets for Naza Noor |
+| [`assets/brand/logos/`](./assets/brand/logos) | Reference vector SVG and raster PNG brand assets and logo templates |
 | [`docs/resources.md`](./docs/resources.md) | Curated developer tools, official documentation links, and media resources |
 
 ---
@@ -150,10 +151,12 @@ For complete Liquid code snippets, integration examples, and settings schemas, s
 
 ---
 
-## 🤝 Contributing & Documentation Standards
+## 🤝 Contributing
 
-When adding or updating content in this repository:
-- **Code snippets must be verified**: Test all Liquid snippets in a preview theme before opening a PR.
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page or submit a Pull Request.
+
+When contributing to this repository:
+- **Code snippets must be verified**: Test all Liquid snippets in a preview or development theme before opening a PR.
 - **Audience-first structure**: Every document must clearly define its target audience, prerequisites, and actionable outcomes.
 - **Preserve history**: Move superseded research or early R&D drafts to [`docs/archive/`](./docs/archive/) rather than deleting them.
 - **Consistent naming**: Use `kebab-case` for markdown files and folders; keep theme files named exactly as they appear in Shopify themes.
@@ -162,4 +165,4 @@ When adding or updating content in this repository:
 
 ## 📄 License
 
-Internal documentation and proprietary theme assets for **Naza Noor**. All rights reserved. Code snippets may be adapted for Shopify development within organization projects.
+This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT). Code snippets, templates, and documentation may be freely used and adapted for personal, commercial, and client Shopify projects.
