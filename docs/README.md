@@ -1,54 +1,87 @@
-# Documentation Index
+# Shopify Documentation Index
 
-All Shopify research, guides, and playbooks live here. The theme code is in [`../theme/`](../theme).
+> The complete architectural reference, operational SOPs, marketing frameworks, and integration guides for the Naza Noor Shopify store.
 
----
-
-## 🗂️ Sections
-
-| Section | What it covers |
-| :--- | :--- |
-| [Guides](./guides/) | Step-by-step operational setup: email, domains, payments, POS, images, apps |
-| [Features](./features/) | Native Shopify products and sales channels: Collective, Inbox, Messaging, Shop App |
-| [Marketing](./marketing/) | Strategy, paid media, retention, social commerce, creator playbooks |
-| [Integrations](./integrations/) | Meta (Facebook & Instagram) channel connection and settings |
-| [Reviews](./reviews/) | Product review systems via apps and native Metaobjects |
-| [SEO](./seo/) | SEO roadmap and reusable meta title/description prompts |
-| [Payments](./payments/) | Payment gateway integration guides |
-| [Support](./support/) | Chat apps and multi-channel customer support research |
-| [Theme](./theme/) | Theme customization documentation |
-| [Archive](./archive/) | Superseded drafts kept for reference |
-| [Resources](./resources.md) | External tools, docs, and video references |
+This directory houses all research, guides, and strategic playbooks. Production Liquid theme overrides live in [`../theme/`](../theme).
 
 ---
 
-## 🚀 Start Here
+## 🧭 Fast-Track Implementation Pathways
 
-### Setting up the store
-1. [Professional Email & Domain Authentication](./guides/professional-email-setup.md)
-2. [Customer Account Domain](./guides/customer-account-domain.md)
-3. [Search & Discovery](./guides/search-and-discovery.md)
-4. [Shopify POS](./guides/shopify-pos.md)
-5. [Manual QR Payments](./guides/manual-qr-payments.md)
+Find the exact guide you need based on your immediate objective:
 
-### Growing the store
-1. [Must-Know Marketing Strategy](./marketing/must-know-marketing-strategy.md)
-2. [Marketing Masterclass](./marketing/masterclass/01-digital-marketing-101.md)
-3. [Shopify Omnichannel Marketing](./marketing/shopify-omnichannel-marketing-guide.md)
-4. [Retention Marketing](./marketing/retention/retention-marketing-guide.md)
-5. [Social Commerce](./marketing/selling-via-shops/master-social-commerce-guide.md)
+```
+                  ┌─────────────────────────────────────┐
+                  │       WHAT ARE YOU BUILDING TODAY?  │
+                  └──────────────────┬──────────────────┘
+                                     │
+         ┌───────────────────────────┼───────────────────────────┐
+         ▼                           ▼                           ▼
+┌──────────────────┐       ┌──────────────────┐       ┌──────────────────┐
+│  Store Launch    │       │  Theme Overhaul  │       │ Growth & Scaling │
+│  & Operations    │       │  & UX Tweaks     │       │ & AI Commerce    │
+└────────┬─────────┘       └────────┬─────────┘       └────────┬─────────┘
+         │                          │                          │
+         ├─ Domain & Email Auth     ├─ Dual Desktop/Mobile     ├─ Must-Know Master
+         │  (SPF, DKIM, DMARC)      │  Logos                   │  Strategy Framework
+         ├─ Customer Accounts       ├─ Header Z-Index Fix      ├─ Agentic AI Store
+         ├─ Search & Discovery      ├─ WhatsApp & Messenger    ├─ Unified Retention
+         └─ POS & Payments          └─ New Arrivals Block      └─ Meta / Google Ads
+```
 
-### Theme customization
-1. [Theme file map](../theme/README.md)
-2. [Mobile Logo Guide](./theme/mobile-logo-guide.md)
-3. [Horizon Dual Logo Guide](./theme/horizon-dual-logo-guide.md)
-4. [Header Menu Z-Index Fix](./theme/header-menu-z-index.md)
+### Path 1: Operational Store Setup (Launch-Ready Checklist)
+Follow this sequence to take a new or migrating store live:
+1. **[Professional Email & Domain Authentication](./guides/professional-email-setup.md)**: Configure DNS records (SPF, DKIM, DMARC) so order confirmations never land in spam.
+2. **[Customer Account Domain](./guides/customer-account-domain.md)**: Route new or classic customer accounts to your custom domain.
+3. **[Shopify Search & Discovery](./guides/search-and-discovery.md)**: Configure facets, visual filters, and product boost rules.
+4. **[Manual QR Payments](./guides/manual-qr-payments.md)**: Enable regional mobile banking / QR scan checkout instructions.
+5. **[EPS Payment Gateway](./payments/eps-payment-gateway.md)**: Set up direct merchant payment integrations.
+6. **[Shopify POS Setup](./guides/shopify-pos.md)**: Connect retail hardware, barcode scanners, and register locations.
+7. **[Image Sizes & Aspect Ratios](./guides/image-sizes.md)**: Ensure uploaded banners and product media adhere to standard dimensions.
+
+### Path 2: Theme Customization & UX
+Implement custom Liquid blocks and fixes without paid apps:
+1. **[Theme File Map & Guide](../theme/README.md)**: Overview of sections, snippets, and blocks.
+2. **[Mobile Logo Guide](./theme/mobile-logo-guide.md)**: Render a dedicated mobile logo without duplicating header sections.
+3. **[Horizon Dual Logo Guide](./theme/horizon-dual-logo-guide.md)**: Desktop/mobile logo switching with configurable heights in theme settings.
+4. **[Header Menu Z-Index Fix](./theme/header-menu-z-index.md)**: Prevent mega menus from clipping under floating chat widgets.
+5. **[Multi-Channel Chat Apps & Widgets](./support/multi-channel-chat-apps.md)**: Embed WhatsApp and Messenger chat buttons and slide-out tabs.
+
+### Path 3: Growth, AI Discovery & Retention
+Deploy modern customer acquisition and retention engines:
+1. **[Must-Know Marketing Strategy](./marketing/must-know-marketing-strategy.md)**: The 3-pillar framework — Search Everywhere (SEvO/GEO), native DM commerce, and point-of-decision social proof.
+2. **[Shopify Agentic Storefronts](./features/shopify-agentic-storefronts.md)**: 2026 Spring Edition guide to ChatGPT, Perplexity, and AI agent checkout via Universal Commerce Protocol (UCP).
+3. **[Shopify Omnichannel Marketing](./marketing/shopify-omnichannel-marketing-guide.md)**: Cohesive multi-channel customer journeys across web, social, and chat.
+4. **[Unified Retention Marketing Guide](./marketing/retention/retention-marketing-guide.md)**: Lifecycle orchestration across Email, SMS, WhatsApp, and social DMs.
+5. **[Meta Ads Master Playbook](./marketing/meta-ads-marketing-guide.md)**: Algorithmic targeting, creative frameworks (PROOF / QUEST), and personalized destinations.
+6. **[Master Social Commerce Guide](./marketing/selling-via-shops/master-social-commerce-guide.md)**: Sell directly on Instagram, Facebook, and TikTok shops.
 
 ---
 
-## 📝 Conventions
+## 🗂️ Section Directory
 
-- File and folder names use **kebab-case** (except Shopify Liquid files, which keep their theme names).
-- Each area has a `README.md` when it needs an index; otherwise this page is the index.
-- Superseded content moves to [`archive/`](./archive/) rather than being deleted.
-- Links are relative so the repository works when cloned anywhere.
+| Section | Focus Area | Key Guides Included |
+| :--- | :--- | :--- |
+| **[`guides/`](./guides)** | Operational SOPs | Email setup, custom account domain, Search & Discovery, POS, QR payments, image sizing |
+| **[`features/`](./features)** | Native Shopify Capabilities | Agentic Storefronts (Spring 2026), Collective, Inbox, Messaging, Shop App, Mobile App |
+| **[`marketing/`](./marketing)** | Growth & Acquisition | Master strategy, Meta ads, Google ads, SEO/GEO, Omnichannel, Retention, Creator guide |
+| **[`integrations/`](./integrations)** | Platform Channels | Meta connection, Business Suite configuration, Meta Growth Playbook |
+| **[`reviews/`](./reviews)** | Social Proof | Native Metaobject review architecture vs third-party review apps (Trustoo) |
+| **[`seo/`](./seo)** | Search & GEO | Technical SEO roadmap, AI meta title/description prompt templates |
+| **[`payments/`](./payments)** | Checkout & Billing | Electronic Payment Systems (EPS) and manual payment gateway setup |
+| **[`support/`](./support)** | Customer Messaging | Multi-channel chat snippets, Omega chat buttons evaluation |
+| **[`theme/`](./theme)** | Theme Documentation | Logo switching, header z-index resolution, snippet integration notes |
+| **[`archive/`](./archive)** | Reference Archive | Superseded research notes, early R&D drafts |
+| **[`resources.md`](./resources.md)** | Resource Index | Curated external tools, documentation portals, and video tutorials |
+
+---
+
+## 📝 Documentation Conventions
+
+To maintain consistency and accuracy across all documentation:
+- **Tone & Perspective**: Written in the second person ("you"), active voice, and present tense.
+- **Action-Oriented Headings**: Steps lead with verbs (e.g., "Step 1: Configure SPF DNS records").
+- **Tested Code Examples**: Every Liquid snippet, curl command, or JSON schema is tested against standard Online Store 2.0 themes.
+- **File Naming**: All files and directories use **kebab-case** (e.g., `manual-qr-payments.md`), with the exception of Shopify Liquid files which match their exact theme filename.
+- **Deprecation Policy**: Never delete superseded technical documentation. Move it to [`archive/`](./archive/) and record the replacement link in [`archive/README.md`](./archive/README.md).
+- **Relative Linking**: All inter-document links must use relative paths to ensure offline and multi-branch portability.

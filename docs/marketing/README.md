@@ -1,90 +1,83 @@
-# Shopify Marketing Guides
+# Shopify Marketing & Growth Guides
 
-> A complete reference library for Shopify store marketing — covering channels, content, SEO, social commerce, creator strategy, and retention.
-> **Last Updated:** October 2026
+> A comprehensive reference library for e-commerce marketing — covering acquisition channels, content engine design, Generative Engine Optimization (GEO), social commerce, creator partnerships, and conversational lifecycle retention.
 
 ---
 
-## 📚 Core Strategy & Channel Guides
+## 🎯 Growth Framework & Strategy
 
-Standalone, actionable guides for foundational marketing strategy and specific acquisition channels.
+Core guides defining high-level commercial strategy, omnichannel customer journey orchestration, and foundational acquisition channels.
 
-| File | Description |
-| :--- | :--- |
-| [must-know-marketing-strategy.md](./must-know-marketing-strategy.md) | **Must-know master strategy** — 3-pillar framework: Search Everywhere (SEvO/GEO), native DM commerce, & point-of-decision proof |
-| [seo-content-marketing-guide.md](./seo-content-marketing-guide.md) | SEO fundamentals, keyword research, on-page optimization, GEO for AI discovery |
-| [paid-social-marketing-guide.md](./paid-social-marketing-guide.md) | Meta, TikTok, Pinterest paid ads — campaigns, creative, budgeting |
-| [meta-ads-marketing-guide.md](./meta-ads-marketing-guide.md) | **Meta Ads Master Guide** — Foundations, algorithmic updates (Customer Lifecycle, Personalized Destinations), & AI creative workflows (PROOF / QUEST) |
-| [google-ads-marketing-guide.md](./google-ads-marketing-guide.md) | Google Search, Shopping, Performance Max campaigns |
+| Guide | Focus & Scope | Expected Outcome |
+| :--- | :--- | :--- |
+| **[Must-Know Marketing Strategy](./must-know-marketing-strategy.md)** | **Master Strategy Framework**: 3-pillar blueprint covering Search Everywhere (SEvO/GEO), native DM conversational commerce, and point-of-decision social proof. | Shift budget from high-CAC ad auctions into high-intent organic search and conversational closing. |
+| **[Omnichannel Marketing Guide](./shopify-omnichannel-marketing-guide.md)** | Unified multi-touchpoint customer journey mapping across online storefront, social media, messaging apps, and retail. | Build a synchronized brand experience with consistent messaging across every touchpoint. |
+| **[SEO & Content Marketing Guide](./seo-content-marketing-guide.md)** | E-commerce SEO fundamentals, high-intent keyword clustering, technical on-page optimization, and AI Generative Engine Optimization (GEO). | Secure sustainable organic search rankings and citations in ChatGPT/Perplexity answers. |
+| **[Meta Ads Master Guide](./meta-ads-marketing-guide.md)** | Comprehensive paid social system: Andromeda/Lattice algorithmic shifts, Personalized Destinations, and AI creative workflows (PROOF & QUEST frameworks). | Scale profitable Meta ad spend with automated targeting and high-converting ad creative. |
+| **[Google Ads Marketing Guide](./google-ads-marketing-guide.md)** | Google Search intent capture, Google Shopping feed optimization, and Performance Max (PMax) campaign structuring. | Capture bottom-of-funnel search intent and maximize blended return on ad spend (ROAS). |
+| **[Paid Social Marketing Guide](./paid-social-marketing-guide.md)** | Multi-platform paid social playbook comparing Meta, TikTok, and Pinterest ad formats, audience targeting, and budgeting. | Diversify paid traffic across platforms according to product type and customer demographics. |
 
 ---
 
 ## 🔁 Retention & Conversational Lifecycle Marketing
 
-Coordinated retention strategy covering Email, SMS, WhatsApp, Social Messenger / DMs, and customer lifetime value.
+Coordinated retention architecture designed to maximize Customer Lifetime Value (LTV) and repurchase rates without reliance on single channels.
 
-| File | Description |
-| :--- | :--- |
-| [retention/retention-marketing-guide.md](./retention/retention-marketing-guide.md) | **Master guide** — Unified retention machine (Email, SMS, WhatsApp & Social DMs) |
-| [retention/email-marketing-guide.md](./retention/email-marketing-guide.md) | Email list building, flows, segmentation, deliverability |
-| [retention/sms-marketing-guide.md](./retention/sms-marketing-guide.md) | SMS list growth, compliance, campaign and flow strategy |
-| [retention/whatsapp-marketing-guide.md](./retention/whatsapp-marketing-guide.md) | WhatsApp Business, broadcast lists, conversational commerce |
-| [retention/social-messenger-marketing-guide.md](./retention/social-messenger-marketing-guide.md) | Instagram DMs, Facebook Messenger, TikTok messaging & DM automation |
-
----
-
-## 🛍️ Social Commerce — Selling via Shops
-
-End-to-end guides for selling on Facebook, Instagram, TikTok, and Pinterest via Shopify.
-
-| File | Description |
-| :--- | :--- |
-| [selling-via-shops/master-social-commerce-guide.md](./selling-via-shops/master-social-commerce-guide.md) | **Master guide** — all platforms, setup, ads, cross-platform strategy |
-| [selling-via-shops/paid-ads-guide.md](./selling-via-shops/paid-ads-guide.md) | Paid ads strategy specific to social commerce |
-| [selling-via-shops/product-tagging-guide.md](./selling-via-shops/product-tagging-guide.md) | Step-by-step product tagging on Instagram & Facebook |
-
-**Research notes** (raw platform research, used to compile the master guide):
-
-| File | Platform |
-| :--- | :--- |
-| [selling-via-shops/research/facebook-shop-research.md](./selling-via-shops/research/facebook-shop-research.md) | Facebook Shop |
-| [selling-via-shops/research/instagram-shop-research.md](./selling-via-shops/research/instagram-shop-research.md) | Instagram Shop |
-| [selling-via-shops/research/meta-ads-research.md](./selling-via-shops/research/meta-ads-research.md) | Meta Ads & Business Suite |
-| [selling-via-shops/research/tiktok-shop-research.md](./selling-via-shops/research/tiktok-shop-research.md) | TikTok Shop |
-| [selling-via-shops/research/pinterest-shop-research.md](./selling-via-shops/research/pinterest-shop-research.md) | Pinterest Shop |
-| [selling-via-shops/research/video-resources.md](./selling-via-shops/research/video-resources.md) | Video resource links |
+| Guide | Scope | Key Capabilities |
+| :--- | :--- | :--- |
+| **[Unified Retention Marketing Guide](./retention/retention-marketing-guide.md)** | **Master Retention Framework** | Multi-channel orchestration rules: message cadences, channel failovers, unified subscriber profiles. |
+| **[Email Marketing Guide](./retention/email-marketing-guide.md)** | Lifecycle Email Automation | Core automated flows (welcome, abandoned checkout, post-purchase, winback), deliverability, and list segmentation. |
+| **[SMS Marketing Guide](./retention/sms-marketing-guide.md)** | High-Urgency SMS Campaigns | TCPA/CTIA compliance, VIP flash sale drops, urgent order updates, and two-way SMS sales assistance. |
+| **[WhatsApp Marketing Guide](./retention/whatsapp-marketing-guide.md)** | Direct Conversational Commerce | WhatsApp Business API, automated catalog sharing, cart recovery via direct chat, and broadcast segmentation. |
+| **[Social Messenger Marketing Guide](./retention/social-messenger-marketing-guide.md)** | Instagram & Facebook DMs | Automated keyword-trigger DM responses (e.g., "Comment PRICE for link"), story reply captures, and live chat closing. |
 
 ---
 
-## 🎥 Content Creator Guide
+## 🛍️ Social Commerce — Selling via Native Shops
 
-A complete guide for creators to grow an audience and turn content into commerce.
+Turn social platforms into direct transaction channels with native checkout and catalog synchronization.
 
-| File | Description |
-| :--- | :--- |
-| [content-creator-guide/README.md](./content-creator-guide/README.md) | **Index** — quick start, guide map, key dates |
-| [content-creator-guide/01-creator-economy.md](./content-creator-guide/01-creator-economy.md) | 2026 landscape, 3 discovery channels |
-| [content-creator-guide/02-platform-setup.md](./content-creator-guide/02-platform-setup.md) | TikTok, Instagram, YouTube, Pinterest setup |
-| [content-creator-guide/03-content-strategy.md](./content-creator-guide/03-content-strategy.md) | Content formats, repurposing framework |
-| [content-creator-guide/04-seo-and-ai-discovery.md](./content-creator-guide/04-seo-and-ai-discovery.md) | SEO, keyword research, GEO for AI |
-| [content-creator-guide/05-monetization.md](./content-creator-guide/05-monetization.md) | Affiliate programs, brand deals, media kit |
-| [content-creator-guide/06-shopify-shop.md](./content-creator-guide/06-shopify-shop.md) | Running your own Shopify store |
-| [content-creator-guide/07-analytics.md](./content-creator-guide/07-analytics.md) | Metrics, analytics tools, monthly review |
-| [content-creator-guide/08-90-day-roadmap.md](./content-creator-guide/08-90-day-roadmap.md) | Week-by-week 90-day launch plan |
-| [content-creator-guide/09-checklists.md](./content-creator-guide/09-checklists.md) | Pre-publish & review checklists |
-| [content-creator-guide/references.md](./content-creator-guide/references.md) | YouTube videos, docs, Shopify blogs |
+| Guide | Scope | Key Deliverables |
+| :--- | :--- | :--- |
+| **[Master Social Commerce Guide](./selling-via-shops/master-social-commerce-guide.md)** | **Master Social Commerce Playbook** | End-to-end setup and synchronization for Facebook Shop, Instagram Shop, TikTok Shop, and Pinterest Shop. |
+| **[Paid Ads for Social Commerce](./selling-via-shops/paid-ads-guide.md)** | Native Social Commerce Ad Strategy | Running ad campaigns directly optimized for in-app shop checkouts rather than external site traffic. |
+| **[Product Tagging Guide](./selling-via-shops/product-tagging-guide.md)** | Step-by-Step Tagging SOP | Tagging products in feed posts, Reels, and Stories on Instagram and Facebook with synchronized catalog SKUs. |
+
+### 🔬 Raw Platform Research
+Deep-dive platform audits used to construct the master social commerce strategy:
+- [Facebook Shop Research](./selling-via-shops/research/facebook-shop-research.md)
+- [Instagram Shop Research](./selling-via-shops/research/instagram-shop-research.md)
+- [Meta Ads & Commerce Manager Research](./selling-via-shops/research/meta-ads-research.md)
+- [TikTok Shop Research](./selling-via-shops/research/tiktok-shop-research.md)
+- [Pinterest Shop Research](./selling-via-shops/research/pinterest-shop-research.md)
+- [Video Resources & References](./selling-via-shops/research/video-resources.md)
+
+---
+
+## 🎥 Content Creator & Affiliate Playbook
+
+A dedicated 9-part curriculum designed for content creators and brands collaborating with influencers to drive commerce.
+
+| Module | Document | Description |
+| :--- | :--- | :--- |
+| **Index** | **[Content Creator Guide Index](./content-creator-guide/README.md)** | Quick-start guide selection, platform fee matrix, and 2026 platform timeline. |
+| **01** | [The Creator Economy Landscape](./content-creator-guide/01-creator-economy.md) | 2026 creator market reality, 3 algorithmic discovery engines, moving beyond views. |
+| **02** | [Platform Setup & Algorithm Signals](./content-creator-guide/02-platform-setup.md) | Technical setup checklists for TikTok, Instagram, YouTube, and Pinterest. |
+| **03** | [Content Strategy & Repurposing](./content-creator-guide/03-content-strategy.md) | The 1-to-Many content repurposing waterfall and high-converting video formats. |
+| **04** | [SEO & Generative AI Discovery](./content-creator-guide/04-seo-and-ai-discovery.md) | Video search optimization, voice-query targeting, and GEO for AI recommendation engines. |
+| **05** | [Monetization & Brand Partnerships](./content-creator-guide/05-monetization.md) | Commission negotiations, affiliate program setups, rate card formulas, and media kits. |
+| **06** | [Running a Shopify Store as a Creator](./content-creator-guide/06-shopify-shop.md) | Merchandising, drops, social commerce linking, and AI-ready catalog structuring. |
+| **07** | [Creator Analytics & Performance](./content-creator-guide/07-analytics.md) | KPI scorecards, benchmark conversion rates, and monthly audit cadence. |
+| **08** | [90-Day Execution Roadmap](./content-creator-guide/08-90-day-roadmap.md) | Week-by-week execution calendar from initial setup to first $10k in GMV. |
+| **09** | [Pre-Flight Checklists](./content-creator-guide/09-checklists.md) | Actionable checklists for video publishing, blog formatting, and affiliate compliance. |
+| **Ref** | [References & Recommended Viewing](./content-creator-guide/references.md) | Verified YouTube tutorials, official platform documentation, and case studies. |
 
 ---
 
-## 🎓 Marketing Masterclass (Learn With Shopify Series)
+## 🎓 Marketing Masterclass (Learn With Shopify Notes)
 
-Notes from the Learn With Shopify YouTube series — foundational marketing strategy.
-
-| File | Description |
-| :--- | :--- |
-| [masterclass/01-digital-marketing-101.md](./masterclass/01-digital-marketing-101.md) | 10 strategies every Shopify store needs |
-| [masterclass/02-pricing-strategies.md](./masterclass/02-pricing-strategies.md) | Winning pricing plays — beginner to pro |
-| [masterclass/03-distribution-strategies.md](./masterclass/03-distribution-strategies.md) | Winning distribution plays |
-| [masterclass/04-promotion-strategies.md](./masterclass/04-promotion-strategies.md) | Winning promotion plays |
-
----
+Structured study notes covering the four foundational pillars of e-commerce business economics:
+- **[01: Digital Marketing 101](./masterclass/01-digital-marketing-101.md)** — The 10 essential marketing strategies required for any online store.
+- **[02: Pricing Strategies](./masterclass/02-pricing-strategies.md)** — Cost-plus, value-based, competitor-indexed, and bundle pricing frameworks.
+- **[03: Distribution Strategies](./masterclass/03-distribution-strategies.md)** — Direct-to-Consumer (DTC), wholesale, retail partnerships, and marketplace distribution channels.
+- **[04: Promotion Strategies](./masterclass/04-promotion-strategies.md)** — Building compelling offers, limited-time promotions, and seasonal sale calendars.

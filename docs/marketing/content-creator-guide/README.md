@@ -1,59 +1,97 @@
 # Content Creator's Complete Guide: Turn Content Into Commerce (2026 Edition)
 
-> **Who This Guide Is For:** Content creators — on TikTok, Instagram, YouTube, Pinterest, and blogs — who want to grow an audience, get discovered by search and AI engines, and convert that attention into real revenue through affiliate partnerships, brand deals, or their own Shopify stores.
-> **Last Updated:** October 2026
+> The definitive playbook for content creators across TikTok, Instagram, YouTube, and Pinterest to scale audience discovery, master AI search (GEO), and convert organic reach into sustainable commerce.
+
+[![Edition](https://img.shields.io/badge/Edition-2026_Strategic_Playbook-purple)](#key-dates-to-know-2026)
+[![Focus](https://img.shields.io/badge/Focus-Social_Commerce_%26_Affiliate-orange)](./05-monetization.md)
+[![AI Discovery](https://img.shields.io/badge/Search-GEO_%26_AI_Agents-blue)](./04-seo-and-ai-discovery.md)
+[![Execution](https://img.shields.io/badge/Roadmap-90--Day_Launch_Plan-green)](./08-90-day-roadmap.md)
 
 ---
 
-## ⚡ Quick Start: What Kind of Creator Are You?
+## Why This Exists
 
-| Your Situation | Go To |
-| :--- | :--- |
-| **New creator** — just starting out | [01-creator-economy.md](./01-creator-economy.md) → [02-platform-setup.md](./02-platform-setup.md) |
-| **Growing creator** — have an audience, want to monetize | [05-monetization.md](./05-monetization.md) |
-| **Established creator** — want to scale revenue & SEO | [04-seo-and-ai-discovery.md](./04-seo-and-ai-discovery.md) |
-| **Selling your own products** | [06-shopify-shop.md](./06-shopify-shop.md) |
-| **Ready to launch** | [08-90-day-roadmap.md](./08-90-day-roadmap.md) |
+In 2026, social platforms have shifted from pure attention aggregators to closed-loop transaction engines. Creators who rely solely on vanity metrics (views and follower counts) or sporadic brand sponsorships face volatile revenue and algorithmic suppression.
+
+To build an enduring, high-margin media business, you must:
+1. **Optimize for Multiple Discovery Channels**: Rank not just in feed recommendation algorithms, but in in-app search bars, Google results, and generative AI search agents (ChatGPT, Gemini, Perplexity).
+2. **Diversify Revenue Beyond AdSense**: Layer multi-tier affiliate programs, creator-led product drops, and direct Shopify social commerce.
+3. **Control Your Customer Data**: Convert borrowed platform followers into first-party email, SMS, and WhatsApp subscriber lists that platform changes cannot take away.
 
 ---
 
-## 📁 Guide Files
+## ⚡ Quick Start: Choose Your Path
 
-| # | File | What's Inside |
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        WHERE ARE YOU IN YOUR JOURNEY?                  │
+├────────────────────┬────────────────────┬──────────────────────────────┤
+│ 🚀 Launching       │ 📈 Growing         │ 💰 Scaling Revenue           │
+│                    │                    │                              │
+│ • Platform setup   │ • 1-to-many engine │ • Brand deal media kit       │
+│ • Algorithm audit  │ • Keyword research │ • Affiliate commissions      │
+│ • Bio optimization │ • AI search (GEO)  │ • Own Shopify storefront     │
+│                    │                    │                              │
+│ ➔ Read Module 01-02│ ➔ Read Module 03-04│ ➔ Read Module 05-06          │
+└────────────────────┴────────────────────┴──────────────────────────────┘
+```
+
+| Your Current Goal | Recommended Sequence | Immediate Next Action |
 | :--- | :--- | :--- |
-| 01 | [01-creator-economy.md](./01-creator-economy.md) | 2026 market landscape, 3 discovery channels, why content alone isn't enough |
-| 02 | [02-platform-setup.md](./02-platform-setup.md) | TikTok, Instagram, YouTube, Pinterest setup checklists & algorithm signals |
-| 03 | [03-content-strategy.md](./03-content-strategy.md) | Content matrix, formats by platform, repurposing framework, topic clusters |
-| 04 | [04-seo-and-ai-discovery.md](./04-seo-and-ai-discovery.md) | Keyword research, video/blog SEO, Generative Engine Optimization (GEO) |
-| 05 | [05-monetization.md](./05-monetization.md) | Affiliate deep dives (TikTok, IG, YouTube, Pinterest), brand deals, media kit |
-| 06 | [06-shopify-shop.md](./06-shopify-shop.md) | Running your own store, social commerce setup, tracking, AI-ready catalog |
-| 07 | [07-analytics.md](./07-analytics.md) | Growth, revenue & store metrics with targets; free analytics tools |
-| 08 | [08-90-day-roadmap.md](./08-90-day-roadmap.md) | Week-by-week 90-day launch plan |
-| 09 | [09-checklists.md](./09-checklists.md) | Platform setup, pre-publish (video/blog/pin), monthly review checklists |
-| REF | [references.md](./references.md) | YouTube videos, official docs, Shopify blogs |
+| **Just starting out** | [01: Creator Economy](./01-creator-economy.md) → [02: Platform Setup](./02-platform-setup.md) | Complete the platform checklist and configure business profiles. |
+| **Want to scale content output** | [03: Content Strategy](./03-content-strategy.md) → [04: SEO & GEO](./04-seo-and-ai-discovery.md) | Implement the 1-to-Many content repurposing waterfall. |
+| **Monetize an existing audience** | [05: Monetization](./05-monetization.md) → [06: Shopify Store](./06-shopify-shop.md) | Apply to verified affiliate networks and build your media kit. |
+| **Track metrics and KPIs** | [07: Creator Analytics](./07-analytics.md) | Build your monthly growth and conversion review dashboard. |
+| **Execute a structured launch** | [08: 90-Day Roadmap](./08-90-day-roadmap.md) → [09: Checklists](./09-checklists.md) | Execute Week 1 milestones and review pre-flight video checklists. |
 
 ---
 
-## Quick Reference: Platform Fee Summary
+## 📁 Curriculum Modules
 
-| Platform | Creator Fees | Notes |
+| Module | Title & Link | Scope & Deliverables |
 | :--- | :--- | :--- |
-| TikTok Shop (affiliate) | 0% from creator side | Brand pays commission |
-| TikTok Shop (own products) | ~8% platform + 2–3% processing + affiliate commission | Model full cost before pricing |
-| Instagram Affiliate | 0% from creator side | Brand sets commission rate |
-| YouTube AdSense | Google takes 45% of ad revenue | You receive 55% |
-| Pinterest | Free (affiliate links permitted) | No platform fee on affiliate |
-| Shopify (own store) | $39–$399/mo subscription + payment processing | Full control over margins |
+| **01** | [The 2026 Creator Economy](./01-creator-economy.md) | The market shift from attention to commerce; the 3 modern discovery engines. |
+| **02** | [Platform Setup & Verification](./02-platform-setup.md) | Checklists and profile optimization for TikTok, Instagram, YouTube, and Pinterest. |
+| **03** | [High-Converting Content Strategy](./03-content-strategy.md) | Topic clustering, hook frameworks, and the cross-platform video repurposing model. |
+| **04** | [SEO & Generative AI Discovery](./04-seo-and-ai-discovery.md) | Generative Engine Optimization (GEO), spoken keyword SEO, and metadata tagging. |
+| **05** | [Monetization & Brand Partnerships](./05-monetization.md) | Affiliate deep dives, rate card formulas, media kit templates, and outreach pitches. |
+| **06** | [Launching Your Shopify Store](./06-shopify-shop.md) | Social commerce synchronization, dropshipping vs inventory, and AI agent shopping readiness. |
+| **07** | [Creator Analytics & KPIs](./07-analytics.md) | Benchmarking engagement rates, conversion rates, and revenue per mille (RPM). |
+| **08** | [90-Day Execution Roadmap](./08-90-day-roadmap.md) | Phase-by-phase execution plan: Phase 1 (Foundation), Phase 2 (Growth), Phase 3 (Monetization). |
+| **09** | [Pre-Flight Checklists](./09-checklists.md) | Step-by-step checklists for video uploads, blog posts, Pinterest pins, and monthly reviews. |
+| **REF** | [References & Verified Sources](./references.md) | YouTube case studies, platform API documentation, and industry benchmark reports. |
 
 ---
 
-## Key Dates to Know (2026)
+## 💳 Platform Monetization & Fee Comparison
 
-| Date | Platform | What Changed |
+| Platform Channel | Typical Creator Take-Home | Platform Fees / Split | Strategic Consideration |
+| :--- | :--- | :--- | :--- |
+| **TikTok Shop (Affiliate)** | 100% of agreed commission | 0% creator fee (seller pays commission) | Instant in-app conversion; highly impulse-driven. |
+| **TikTok Shop (Own Store)** | Remaining margin after COGS | ~8% platform fee + 2–3% payment fee | Requires US business presence and strict SLA fulfillment. |
+| **Instagram Affiliate** | 100% of agreed commission | 0% creator fee (brand pays) | Seamless DM automation via keyword triggers. |
+| **YouTube AdSense** | 55% of net ad revenue | Google retains 45% of long-form ad spend | Long-tail evergreen compounding revenue. |
+| **Pinterest Affiliate** | 100% of affiliate commission | 0% platform fee on external affiliate links | Extremely long shelf-life (Pins drive clicks for 6–12+ months). |
+| **Shopify (Direct Store)** | 100% of gross margin | $39–$399/mo + ~2.9% + 30¢ per transaction | Complete ownership over customer data and margin. |
+
+---
+
+## 📅 Key Dates to Know (2026 E-Commerce Landscape)
+
+| Date | Platform | Key Industry Milestone |
 | :--- | :--- | :--- |
-| July 2025 | TikTok | GMV Max replaces all legacy TikTok Shop ad formats |
-| January 22, 2026 | TikTok | US ban resolved; TikTok Shop fully operational in US |
-| April 2026 | Pinterest | Hosted Checkout launched (in-app purchase without leaving Pinterest) |
-| Spring 2026 | Shopify | Agentic Commerce "Everywhere" — AI agents can buy from your store |
-| August 26, 2026 | Shopify | Additional Scripts hard deprecated; Web Pixels mandatory |
-| September 8, 2026 | Meta | Muse AI Agent launched — shops on users' behalf |
+| **July 2025** | TikTok | GMV Max replaced all legacy TikTok Shop ad bidding models. |
+| **January 2026** | TikTok | US operational structure stabilized; TikTok Shop remains primary US social commerce driver. |
+| **April 2026** | Pinterest | Hosted Checkout rolled out, enabling 1-click in-app buying on mobile Pins. |
+| **Spring 2026** | Shopify | Spring "Everywhere" Edition: Universal Commerce Protocol (UCP) launched for AI shopping agents. |
+| **August 2026** | Shopify | Mandatory Web Pixels API migration; legacy `additional_scripts` retired permanently. |
+| **September 2026**| Meta | Meta Muse AI Agent launched to proactively recommend and purchase products for users. |
+
+---
+
+## 🔗 Related Documentation
+
+- [Shopify Omnichannel Marketing Guide](../shopify-omnichannel-marketing-guide.md)
+- [Unified Retention & Lifecycle Marketing](../retention/retention-marketing-guide.md)
+- [Master Social Commerce Playbook](../selling-via-shops/master-social-commerce-guide.md)
+- [SEO & Content Marketing Guide](../seo-content-marketing-guide.md)
